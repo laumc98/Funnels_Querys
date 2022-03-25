@@ -10,4 +10,5 @@ left join person_flags on people.id = person_flags.person_id
 where  date(opportunity_candidates.created) between date_sub(now(), interval 262 day) and now() AND
 o.objective not like '***%'
 and tc.utm_medium in ('srh_jobs', 'ja_mtc', 'am_sug', 'rc_cb_rcdt', 'rc_trrx_inv', 'ro_sug', 'rc_syn', 'rc_src', 'pr_sml_jobs','syn','src')
+and (o.remote = 1)
 group by 1, 2,3
