@@ -1,5 +1,5 @@
-SELECT `People - Applicant Coordinator Person`.`subject_identifier` AS `subjid`, `People - Applicant Coordinator Person`.`gg_id` AS `ggid`
-FROM `opportunities`
-LEFT JOIN `people` `People - Applicant Coordinator Person` ON `opportunities`.`applicant_coordinator_person_id` = `People - Applicant Coordinator Person`.`id`
-WHERE `opportunities`.`remote` = 1 AND `People - Applicant Coordinator Person`.`gg_id` IS NOT NULL
+SELECT `opportunity_candidates`.`created` AS `created`, `People`.`gg_id` AS `People__gg_id`
+FROM `opportunity_candidates`
+LEFT JOIN `people` `People` ON `opportunity_candidates`.`person_id` = `People`.`id` LEFT JOIN `opportunities` `Opportunities` ON `opportunity_candidates`.`opportunity_id` = `Opportunities`.`id`
+WHERE `Opportunities`.`remote` = 1 
 LIMIT 1048575
