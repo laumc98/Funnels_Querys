@@ -1,4 +1,4 @@
-select date(no.send_at) as date, count(*)
+select str_to_date(concat(yearweek(no.send_at), ' Sunday'), '%X%V %W') as date, p.gg_id as ggid
 from notifications no
-WHERE no.template like 'career-advisor-invited-job-opportunity' and no.send_at between date_sub(now(), interval 8 day) and now() and no.status = 'sent'
-group by 1
+left join people p on no.to = p.id
+where no.template like 'career-advisor-invited-job-opportunity' and no.send_at between date_sub(now(), interval 262 day) and now() and no.status = 'sent'
