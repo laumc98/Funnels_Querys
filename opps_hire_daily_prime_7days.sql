@@ -2,7 +2,7 @@ SELECT
     date(`opportunity_stats_hires`.`hiring_date`) AS `date`,
     count(
         distinct `opportunity_stats_hires`.`opportunity_id`
-    ) AS `opps_hire_weekly_prime7days`
+    ) AS `opps_hire_daily_prime7days`
 FROM
     `opportunity_stats_hires`
     LEFT JOIN `opportunities` `Opportunities` ON `opportunity_stats_hires`.`opportunity_id` = `Opportunities`.`id`

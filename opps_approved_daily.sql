@@ -1,6 +1,6 @@
 SELECT
     date(`opportunities`.`reviewed`) AS `date`,
-    count(distinct `opportunities`.`id`) AS `opps_approved_weekly`
+    count(distinct `opportunities`.`id`) AS `opps_approved_daily`
 FROM
     `opportunities`
     LEFT JOIN `opportunity_organizations` `Opportunity Organizations` ON `opportunities`.`id` = `Opportunity Organizations`.`opportunity_id`

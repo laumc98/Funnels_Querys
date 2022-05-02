@@ -1,6 +1,6 @@
 SELECT
     date(`source`.`match_date`) AS `date`,
-    count(distinct `source`.`opportunity_id`) AS `opps_3mm_weekly_7days`
+    count(distinct `source`.`opportunity_id`) AS `opps_3mm_daily_7days`
 FROM
     (
         select

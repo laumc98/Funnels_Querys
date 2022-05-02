@@ -2,7 +2,7 @@ SELECT
     date(`opportunity_changes_history`.`created`) AS `date`,
     count(
         distinct `opportunity_changes_history`.`opportunity_id`
-    ) AS `opps_commited_weekly_remote`
+    ) AS `opps_commited_daily_remote`
 FROM
     `opportunity_changes_history`
     LEFT JOIN `opportunities` `opportunities__via__opportunit` ON `opportunity_changes_history`.`opportunity_id` = `opportunities__via__opportunit`.`id`
