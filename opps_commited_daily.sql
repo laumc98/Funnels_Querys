@@ -12,6 +12,7 @@ WHERE
         AND `opportunity_changes_history`.`value` = 0
         AND `opportunities__via__opportunit`.`reviewed` > "2021-7-18"
         AND `opportunities__via__opportunit`.`reviewed` < date(now(6))
+        AND date(`opportunity_changes_history`.`created`) = date(`opportunities__via__opportunit`.`reviewed`)
     )
 GROUP BY
     date(`opportunity_changes_history`.`created`)
