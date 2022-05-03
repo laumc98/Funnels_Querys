@@ -1,3 +1,15 @@
-select str_to_date(concat(yearweek(no.send_at), ' Sunday'), '%X%V %W') as date, TRIM('"' FROM JSON_EXTRACT(no.context, '$.opportunityId')) as AlfaID
-from notifications no
-WHERE no.template like 'career-advisor-sourcing-first-evaluation' and no.send_at between date_sub(now(), interval 262 day) and now() and no.status = 'sent'
+SELECT
+    str_to_date(concat(yearweek(`notifications`.`send_at`), 'Sunday'),'%X%V %W') AS `date`,
+    TRIM('"'FROM JSON_EXTRACT(`notifications`.`context`, '$.opportunityId')) as `AlfaID`
+FROM
+    `notifications`
+WHERE
+    (
+        (
+            `notifications`.`template` = 'career-advisor-sourcing-first-evaluation-matrix-a'
+            OR `notifications`.`template` = 'career-advisor-sourcing-first-evaluation-matrix-b'
+            OR `notifications`.`template` = 'career-advisor-sourcing-first-evaluation-matrix-c'
+            OR `notifications`.`template` = 'career-advisor-sourcing-first-evaluation'
+        )
+        AND `notifications`.`status` = 'sent'
+    )
