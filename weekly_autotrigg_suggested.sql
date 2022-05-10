@@ -11,6 +11,6 @@ WHERE
     oam.active = true 
     and am.active = true
     and amn.status = 'sent'
-    and coalesce(amn.sent_at, amn.send_at) between date_sub(now(), interval 262 day) and now()
+    and coalesce(amn.sent_at, amn.send_at) > '2021-08-15'
     and o.remote = 1
 GROUP BY 1
