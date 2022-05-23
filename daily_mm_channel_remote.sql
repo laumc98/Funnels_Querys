@@ -1,7 +1,7 @@
 SELECT
     `Member Evaluations`.`interested` AS `daily_date`,
     `source`.`Tracking Codes__utm_medium` AS `Tracking Codes__utm_medium`,
-    count(distinct `source`.`id`) AS `weekly_mm_channel_remote`
+    count(distinct `source`.`id`) AS `daily_mm_channel_remote`
 FROM
     (
         SELECT
