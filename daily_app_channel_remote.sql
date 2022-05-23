@@ -38,5 +38,5 @@ GROUP BY
     date(`source`.`interested`),
     `source`.`Tracking Codes__utm_medium`
 ORDER BY
-    date(`source`.`interested`),
-    `source`.`Tracking Codes__utm_medium` ASC
+    date(`source`.`interested`) ASC,
+    `source`.`Tracking Codes__utm_medium` 
