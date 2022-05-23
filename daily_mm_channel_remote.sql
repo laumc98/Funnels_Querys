@@ -41,8 +41,8 @@ WHERE
     )
 GROUP BY
     `source`.`Tracking Codes__utm_medium`,
-    `Member Evaluations`.`interested`,
+    date(`Member Evaluations`.`interested`),
     `source`.`interested`
 ORDER BY
-    `Member Evaluations`.`interested` ASC, 
+    date(`Member Evaluations`.`interested`) ASC, 
     `source`.`interested` ASC

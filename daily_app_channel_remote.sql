@@ -35,8 +35,8 @@ WHERE
         AND `source`.`interested` < date(date_add(now(6), INTERVAL 1 day))
     )
 GROUP BY
-    `source`.`interested`,
+    date(`source`.`interested`),
     `source`.`Tracking Codes__utm_medium`
 ORDER BY
-    `source`.`interested`,
+    date(`source`.`interested`),
     `source`.`Tracking Codes__utm_medium` ASC
