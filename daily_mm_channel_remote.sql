@@ -32,7 +32,7 @@ FROM
 WHERE
     (
         `Member Evaluations`.`interested` IS NOT NULL
-        AND `Member Evaluations`.`interested` >= "2021-06-01"
+        AND `Member Evaluations`.`interested` >= "2021-12-01"
         AND `Member Evaluations`.`interested` < date(date_add(now(6), INTERVAL 1 day))
         AND `source`.`interested` >= "2021-06-01"
         AND `source`.`interested` < date(date_add(now(6), INTERVAL 1 day))
