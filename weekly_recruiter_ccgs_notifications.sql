@@ -1,6 +1,6 @@
 SELECT
    str_to_date(concat(yearweek(`notifications_date`), ' Sunday'),'%X%V %W') AS `date`,
-   notif.notifications_date AS `daily_date`,
+   date(notif.notifications_date) AS `daily_date`,
    notif.AlfaID as `AlfaID`
 FROM
 (
