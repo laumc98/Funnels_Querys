@@ -1,8 +1,8 @@
 select
-  str_to_date(concat(yearweek(`opportunity_candidates`.`created`),' Sunday'),'%X%V %W') as date,
+  opportunity_candidates.created as date,
   IF(ISNULL(interested), 'started', 'finished') as finished,
   tc.utm_medium as UTM,
-  count(distinct opportunity_candidates.id) as applications
+  count(distinct opportunity_candidates.id) as daily_applications
 from
   opportunity_candidates
   inner join opportunities as o on opportunity_candidates.opportunity_id = o.id

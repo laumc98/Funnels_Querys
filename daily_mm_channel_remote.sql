@@ -1,5 +1,5 @@
 SELECT
-    str_to_date(concat(yearweek(`Member Evaluations`.`interested`),' Sunday'),'%X%V %W') AS `date`,
+    `Member Evaluations`.`interested` AS `date`,
     `source`.`Tracking Codes__utm_medium` AS `Tracking Codes__utm_medium`,
     count(distinct `source`.`id`) AS `weekly_mm_channel_remote`
 FROM
@@ -37,12 +37,12 @@ WHERE
         AND `source`.`interested` >= "2021-06-01"
         AND `source`.`interested` < date(date_add(now(6), INTERVAL 1 day))
         AND `source`.`Opportunities__remote` = 1
-        AND str_to_date(concat(yearweek(`Member Evaluations`.`interested`),' Sunday'),'%X%V %W') = str_to_date(concat(yearweek(`source`.`interested`), ' Sunday'),'%X%V %W')
+        AND `Member Evaluations`.`interested` = `source`.`interested`
     )
 GROUP BY
     `source`.`Tracking Codes__utm_medium`,
-    str_to_date(concat(yearweek(`Member Evaluations`.`interested`),' Sunday'),'%X%V %W'),
-    str_to_date(concat(yearweek(`source`.`interested`), ' Sunday'),'%X%V %W')
+    `Member Evaluations`.`interested`,
+    `source`.`interested`
 ORDER BY
-    str_to_date(concat(yearweek(`Member Evaluations`.`interested`),' Sunday'),'%X%V %W') ASC, 
-    str_to_date(concat(yearweek(`source`.`interested`), ' Sunday'),'%X%V %W') ASC
+    `Member Evaluations`.`interested` ASC, 
+    `source`.`interested` ASC
