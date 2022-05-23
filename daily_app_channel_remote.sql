@@ -1,5 +1,5 @@
 SELECT
-    `source`.`interested` AS `date`,
+    `source`.`interested` AS `daily_date`,
     `source`.`Tracking Codes__utm_medium` AS `Tracking Codes__utm_medium`,
     count(distinct `source`.`id`) AS `daily_app_channel_remote`
 FROM

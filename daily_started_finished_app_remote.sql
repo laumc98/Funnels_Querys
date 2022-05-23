@@ -1,5 +1,5 @@
 select
-  opportunity_candidates.created as date,
+  opportunity_candidates.created as `daily_date`,
   IF(ISNULL(interested), 'started', 'finished') as finished,
   tc.utm_medium as UTM,
   count(distinct opportunity_candidates.id) as daily_applications
