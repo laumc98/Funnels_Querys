@@ -1,7 +1,8 @@
 SELECT
     c.year AS year,
     c.week AS week,
-    c.date AS date,
+    str_to_date(concat(yearweek(dt.created),' Sunday'),'%X%V %W') AS date,
+    dt.created AS daily_date,
     dt.daily_native AS daily_native,
     wk.daily_native AS weekly
 FROM
