@@ -1,3 +1,17 @@
-select str_to_date(concat(yearweek(no.send_at), ' Sunday'), '%X%V %W') as date, TRIM('"' FROM JSON_EXTRACT(no.context, '$.opportunityId')) as AlfaID
-from notifications no
-WHERE no.template like 'career-advisor-job-opportunity' and no.send_at between date_sub(now(), interval 262 day) and now() and no.status = 'sent'
+SELECT
+    str_to_date(concat(yearweek(notif.notifications_date), ' Sunday'),'%X%V %W') as date,
+    date(notif.notifications_date) as 'daily_date',
+    notif.AlfaID as 'AlfaID'
+FROM
+(
+        SELECT
+            no.send_at as 'notifications_date',
+            TRIM('"' FROM JSON_EXTRACT(no.context, '$.opportunityId')) as AlfaID
+        FROM
+            notifications no
+        WHERE
+            no.template = 'career-advisor-job-opportunity'
+            AND no.send_at >= "2021-08-01"
+            AND no.send_at < date(date_add(now(6), INTERVAL 1 day))
+            AND no.status = 'sent'
+) notif

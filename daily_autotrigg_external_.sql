@@ -1,5 +1,5 @@
 SELECT
-    str_to_date(concat(yearweek(oc.created), ' Sunday'),'%X%V %W') as date,
+    date(oc.created) as daily_date,
     count(*) as 'count_trigg_ext'
 FROM
     opportunity_candidates oc
@@ -14,7 +14,7 @@ WHERE
         and oc.column_id is null
         and oc.application_step is null
         and o.remote = 1
-        and oc.created >= "2021-08-01"
+        and oc.created >= "2022-01-01"
         and oc.created < date(date_add(now(6), INTERVAL 1 day))
     )
 GROUP BY 1
