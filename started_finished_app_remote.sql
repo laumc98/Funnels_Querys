@@ -43,7 +43,8 @@ where
     'ja_rlvsgl_prs',
     'ja_allsgl_prs',
     'ja_rlvsgl_org',
-    'ja_allsgl_org'
+    'ja_allsgl_org',
+    'rc_am_sug'
   )
   and (o.remote = 1)
 group by 1,2,3
