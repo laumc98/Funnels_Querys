@@ -1,7 +1,6 @@
 /* AA : Channel's performance : weekly app remote : prod */ 
 SELECT
     str_to_date(concat(yearweek(`source`.`interested`), ' Sunday'),'%X%V %W') AS `date`,
-    `source`.`opportunity_id` AS `ID`,
     `source`.`Tracking Codes__utm_medium` AS `Tracking Codes__utm_medium`,
     count(distinct `source`.`id`) AS `weekly_app_channel`
 FROM
@@ -35,13 +34,13 @@ FROM
     ) `source`
 WHERE
     (
+        `source`.`Opportunities__remote` = 1
         `source`.`interested` > "2021-7-18"
         AND `source`.`interested` < date(date_add(now(6), INTERVAL 1 day))
     )
 GROUP BY
     str_to_date(concat(yearweek(`source`.`interested`), ' Sunday'),'%X%V %W'),
-    `source`.`Tracking Codes__utm_medium`,
-    `source`.`opportunity_id`
+    `source`.`Tracking Codes__utm_medium`
 ORDER BY
     str_to_date(concat(yearweek(`source`.`interested`), ' Sunday'),'%X%V %W') ASC,
     `source`.`Tracking Codes__utm_medium` ASC
