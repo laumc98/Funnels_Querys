@@ -1,3 +1,4 @@
+/* AA : Channel's performance : nyax notifications : prod */ 
 SELECT
     str_to_date(concat(yearweek(notif.notifications_date), ' Sunday'),'%X%V %W') as date,
     date(notif.notifications_date) as 'daily_date',

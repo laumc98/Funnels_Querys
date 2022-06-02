@@ -1,3 +1,4 @@
+/* AA : Channel's performance : ccgs notifications : prod */ 
 SELECT
    str_to_date(concat(yearweek(`notifications_date`), ' Sunday'),'%X%V %W') AS `date`,
    date(notif.notifications_date) AS `daily_date`,

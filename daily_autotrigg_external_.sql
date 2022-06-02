@@ -1,3 +1,4 @@
+/* AA : Channel's performance : daily Autotrigg ext notifications : prod */ 
 SELECT
     date(oc.created) as daily_date,
     count(*) as 'count_trigg_ext'

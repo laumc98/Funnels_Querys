@@ -1,3 +1,4 @@
+/* AA : Channel's performance : weekly app remote : prod */ 
 SELECT
     str_to_date(concat(yearweek(`source`.`interested`), ' Sunday'),'%X%V %W') AS `date`,
     `source`.`opportunity_id` AS `ID`,

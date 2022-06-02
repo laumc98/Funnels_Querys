@@ -1,3 +1,4 @@
+/* AA : Channel's performance : similar jobs notifications : prod */ 
 SELECT
       (CAST(date_trunc('week',CAST(("atomic"."com_torrelabs_similar_opportunity_clicked_1"."root_tstamp" + (INTERVAL '1 day')) AS timestamp)) AS timestamp) + (INTERVAL '-1 day')) AS "date",
       "atomic"."com_torrelabs_similar_opportunity_clicked_1"."clicked_opportunity_id" AS "clicked_opportunity_id",

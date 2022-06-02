@@ -1,3 +1,4 @@
+/* AA : Channel's performance : job views : prod */ 
 SELECT
     c.year AS year,
     c.week AS week,

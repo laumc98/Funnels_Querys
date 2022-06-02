@@ -1,3 +1,4 @@
+/* AA : Channel's performance : daily started/finished app remote : prod */ 
 select
   date(opportunity_candidates.created) as `daily_date`,
   IF(ISNULL(interested), 'started', 'finished') as finished,

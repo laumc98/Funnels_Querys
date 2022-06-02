@@ -1,3 +1,4 @@
+/* AA : Channel's performance : Daily mm remote : prod */ 
 SELECT
     date(`Member Evaluations`.`interested`) AS `daily_date`,
     `source`.`Tracking Codes__utm_medium` AS `Tracking Codes__utm_medium`,

@@ -1,3 +1,4 @@
+/* AA : Channel's performance : daily mm remote : prod */ 
 SELECT
     str_to_date(concat(yearweek(`Member Evaluations`.`interested`),' Sunday'),'%X%V %W') AS `date`,
     `source`.`Tracking Codes__utm_medium` AS `Tracking Codes__utm_medium`,

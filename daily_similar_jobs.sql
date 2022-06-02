@@ -1,3 +1,4 @@
+/* AA : Channel's performance : Similar jobs notifications : prod */ 
 SELECT
       date("atomic"."com_torrelabs_similar_opportunity_clicked_1"."root_tstamp")  AS "daily_date",
       "atomic"."com_torrelabs_similar_opportunity_clicked_1"."clicked_opportunity_id" AS "clicked_opportunity_id",
