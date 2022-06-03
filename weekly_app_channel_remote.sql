@@ -35,7 +35,7 @@ FROM
 WHERE
     (
         `source`.`Opportunities__remote` = 1
-        `source`.`interested` > "2021-7-18"
+        AND `source`.`interested` > "2021-7-18"
         AND `source`.`interested` < date(date_add(now(6), INTERVAL 1 day))
     )
 GROUP BY
