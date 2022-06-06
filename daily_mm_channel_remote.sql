@@ -35,7 +35,7 @@ WHERE
         `Member Evaluations`.`interested` IS NOT NULL
         AND `Member Evaluations`.`interested` >= "2022-01-01"
         AND `Member Evaluations`.`interested` < date(date_add(now(6), INTERVAL 1 day))
-        AND `source`.`interested` >= "2022-01-01"
+        AND `source`.`interested` >= "2021-06-01"
         AND `source`.`interested` < date(date_add(now(6), INTERVAL 1 day))
         AND `source`.`Opportunities__remote` = 1
         AND date(`Member Evaluations`.`interested`) = date(`source`.`interested`)
