@@ -38,9 +38,12 @@ WHERE
         AND `source`.`interested` >= "2021-06-01"
         AND `source`.`interested` < date(date_add(now(6), INTERVAL 1 day))
         AND `source`.`Opportunities__remote` = 1
+        AND date(`Member Evaluations`.`interested`) = date(`source`.`interested`)
     )
 GROUP BY
     `source`.`Tracking Codes__utm_medium`,
-    date(`Member Evaluations`.`interested`)
+    date(`Member Evaluations`.`interested`),
+    date(`source`.`interested`)
 ORDER BY
     date(`Member Evaluations`.`interested`) ASC
+    date(`source`.`interested`) ASC
