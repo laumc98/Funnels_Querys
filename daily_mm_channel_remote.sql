@@ -45,5 +45,5 @@ GROUP BY
     date(`Member Evaluations`.`interested`),
     date(`source`.`interested`)
 ORDER BY
-    date(`Member Evaluations`.`interested`) ASC
+    date(`Member Evaluations`.`interested`) ASC,
     date(`source`.`interested`) ASC
