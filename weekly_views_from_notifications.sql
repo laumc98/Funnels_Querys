@@ -24,11 +24,9 @@ WHERE
             OR "atomic"."events"."mkt_medium" = 'am_inv'
             OR "atomic"."events"."mkt_medium" = 'rc_am_sug'
             OR "atomic"."events"."mkt_medium" = 'rc_trrx_inv'
-            OR "atomic"."events"."mkt_medium" = 'syn'
             OR "atomic"."events"."mkt_medium" = 'rc_syn'
             OR "atomic"."events"."mkt_medium" = 'rc_src'
             OR "atomic"."events"."mkt_medium" = 'rc_ccg'
-            OR "atomic"."events"."mkt_medium" = 'ref_ts'
         )
     )
 GROUP BY
