@@ -1,6 +1,7 @@
 SELECT
     CAST("atomic"."events"."derived_tstamp" AS date) AS "daily_date",
     "atomic"."events"."mkt_medium" AS "UTM",
+    SUBSTRING("atomic"."events"."page_urlpath",7,8) as "AlfaID",
     count(*) AS "daily_views_notifications"
 FROM
     "atomic"."events"
@@ -29,6 +30,6 @@ WHERE
         )
     )
 GROUP BY
-    1,2
+    1,2,3
 ORDER BY
     CAST("atomic"."events"."derived_tstamp" AS date) ASC
