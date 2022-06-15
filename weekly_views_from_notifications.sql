@@ -1,6 +1,7 @@
 SELECT
     (CAST(date_trunc('week',CAST(("atomic"."events"."derived_tstamp" + (INTERVAL '1 day')) AS timestamp)) AS timestamp) + (INTERVAL '-1 day')) AS "date",
     "atomic"."events"."mkt_medium" AS "UTM",
+    SUBSTRING("atomic"."events"."page_urlpath",7,8) as "AlfaID",
     count(*) AS "weekly_views_notifications"
 FROM
     "atomic"."events"
@@ -30,6 +31,7 @@ WHERE
     )
 GROUP BY
     (CAST(date_trunc('week',CAST(("atomic"."events"."derived_tstamp" + (INTERVAL '1 day')) AS timestamp)) AS timestamp) + (INTERVAL '-1 day')),
-    "atomic"."events"."mkt_medium"
+    "atomic"."events"."mkt_medium",
+    SUBSTRING("atomic"."events"."page_urlpath",7,8)
 ORDER BY
     (CAST(date_trunc('week',CAST(("atomic"."events"."derived_tstamp" + (INTERVAL '1 day')) AS timestamp)) AS timestamp) + (INTERVAL '-1 day')) ASC
