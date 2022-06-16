@@ -1,5 +1,5 @@
 SELECT
-    CAST("atomic"."events"."derived_tstamp" AS date) AS "daily_date",
+    CAST("atomic"."events"."collector_tstamp" AS date) AS "daily_date",
     "atomic"."events"."mkt_medium" AS "UTM",
     SUBSTRING("atomic"."events"."page_urlpath",7,8) as "AlfaID",
     count(*) AS "daily_views_notifications"
@@ -10,6 +10,9 @@ WHERE
         "atomic"."events"."event" = 'page_view'
         AND (
             lower("atomic"."events"."page_url") like '%post%'
+        )
+        AND (
+            lower("atomic"."events"."page_urlpath") like '%post%'
         )
         AND (
             "atomic"."events"."mkt_medium" = 'am_sug'
@@ -30,6 +33,9 @@ WHERE
         )
     )
 GROUP BY
-    1,2,3
+    CAST("atomic"."events"."collector_tstamp" AS date),
+    "atomic"."events"."mkt_medium",
+    SUBSTRING("atomic"."events"."page_urlpath",7,8),
+    "atomic"."events"."domain_userid"
 ORDER BY
-    CAST("atomic"."events"."derived_tstamp" AS date) ASC
+    CAST("atomic"."events"."collector_tstamp" AS date) ASC
