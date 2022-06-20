@@ -24,6 +24,7 @@ WHERE
             OR "atomic"."events"."mkt_medium" = 'ja_rlvsgl_org'
             OR "atomic"."events"."mkt_medium" = 'rc_cb_rcdt'
             OR "atomic"."events"."mkt_medium" = 'sml_jobs'
+            OR "atomic"."events"."mkt_medium" = 'rc_sml_jobs'
             OR "atomic"."events"."mkt_medium" = 'am_inv'
             OR "atomic"."events"."mkt_medium" = 'rc_am_sug'
             OR "atomic"."events"."mkt_medium" = 'rc_trrx_inv'
