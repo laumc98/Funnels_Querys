@@ -41,7 +41,7 @@ WHERE
         AND `source`.`hiring_date` < date(date_add(now(6), INTERVAL 1 day))
     )
 GROUP BY
-    `source`.`hiring_date`,
+    date(`source`.`hiring_date`),
     `source`.`Tracking Codes__utm_medium`
 ORDER BY
-    `source`.`hiring_date` ASC
+    date(`source`.`hiring_date`) ASC
