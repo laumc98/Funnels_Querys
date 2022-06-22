@@ -8,7 +8,6 @@ WHERE
     (
         (
             `notifications`.`template` = 'talent-candidate-manually-invited'
-            OR `notifications`.`template` = 'talent-candidate-invited'
         )
         AND `notifications`.`status` = 'sent'
         AND `notifications`.`sent_at` >= '2022-01-1'
