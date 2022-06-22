@@ -1,7 +1,7 @@
 /* AA : Channel's performance : daily Autotrigg ext notifications : prod */ 
 SELECT
     date(`notifications`.`sent_at`) AS `daily_date`,
-    count(*) AS `count_trigg_sugg`
+    count(*) AS `count_trigg_ext`
 FROM
     `notifications`
 WHERE

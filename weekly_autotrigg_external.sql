@@ -1,7 +1,7 @@
 /* AA : Channel's performance : weekly autotrigg ext notifications : prod */ 
 SELECT
     str_to_date(concat(yearweek(`notifications`.`sent_at`), ' Sunday'),'%X%V %W') AS `date`,
-    count(*) AS `count_trigg_sugg`
+    count(*) AS `count_trigg_ext`
 FROM
     `notifications`
 WHERE
