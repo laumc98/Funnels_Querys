@@ -2,7 +2,7 @@
 SELECT
     date(occh.created) AS 'daily_date',
     tc.utm_medium AS 'Tracking Codes__utm_medium',
-    count(*) AS 'daily_mm_channel_remote'
+    count(distinct occh.candidate_id) AS 'daily_mm_channel_remote'
 FROM
     opportunity_candidate_column_history occh
     INNER JOIN opportunity_columns oc ON occh.to = oc.id

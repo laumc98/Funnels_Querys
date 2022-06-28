@@ -2,7 +2,7 @@
 SELECT
     str_to_date(concat(yearweek(occh.created), ' Sunday'),'%X%V %W') AS 'date',
     tc.utm_medium AS 'Tracking Codes__utm_medium',
-    count(*) AS 'weekly_mm_channel_remote'
+    count(distinct occh.candidate_id) AS 'weekly_mm_channel_remote'
 FROM
     opportunity_candidate_column_history occh
     INNER JOIN opportunity_columns oc ON occh.to = oc.id
@@ -16,7 +16,7 @@ WHERE
     AND oca.interested IS NOT NULL 
     AND o.remote = 1
     AND o.objective NOT LIKE '**%'
-    AND date(occh.created) = date(oca.interested)
+    AND str_to_date(concat(yearweek(occh.created), ' Sunday'),'%X%V %W') = str_to_date(concat(yearweek(oca.interested), ' Sunday'),'%X%V %W')
     AND o.id IN (
         SELECT
             DISTINCT o.id AS opportunity_id
