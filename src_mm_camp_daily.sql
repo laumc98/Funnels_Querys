@@ -35,7 +35,7 @@ FROM
 WHERE
     (
         `Member Evaluations`.`interested` IS NOT NULL
-        AND `Member Evaluations`.`interested` >= date(date_add(now(6), INTERVAL -30 day))
+        AND `Member Evaluations`.`interested` >= date(date_add(now(6), INTERVAL -60 day))
         AND `Member Evaluations`.`interested` < date(date_add(now(6), INTERVAL 1 day))
         AND date(`Member Evaluations`.`interested`) = date(`source`.`interested`)
         AND (

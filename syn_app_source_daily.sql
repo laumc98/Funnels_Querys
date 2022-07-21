@@ -34,7 +34,7 @@ FROM
 WHERE
     (
         `source`.`interested` IS NOT NULL
-        AND `source`.`interested` >= date(date_add(now(6), INTERVAL -30 day))
+        AND `source`.`interested` >= date(date_add(now(6), INTERVAL -60 day))
         AND `source`.`interested` < date(date_add(now(6), INTERVAL 1 day))
         AND (
             `source`.`Tracking Codes__utm_medium` = 'syn'
