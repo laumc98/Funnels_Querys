@@ -47,5 +47,4 @@ where
     'ja_allsgl_org',
     'rc_am_sug'
   )
-  and (o.remote = 1)
 group by 1,2,3

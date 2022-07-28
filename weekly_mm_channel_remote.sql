@@ -14,7 +14,6 @@ WHERE
     oc.name = 'mutual matches'
     AND occh.created >= '2021-06-01'
     AND oca.interested IS NOT NULL 
-    AND o.remote = 1
     AND o.objective NOT LIKE '**%'
     AND str_to_date(concat(yearweek(occh.created), ' Sunday'),'%X%V %W') = str_to_date(concat(yearweek(oca.interested), ' Sunday'),'%X%V %W')
     AND o.id IN (
