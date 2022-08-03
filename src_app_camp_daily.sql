@@ -57,6 +57,7 @@ WHERE
             OR `source`.`Tracking Codes__utm_campaign` = 'ana'
             OR `source`.`Tracking Codes__utm_campaign` = 'erg'
             OR `source`.`Tracking Codes__utm_campaign` = 'mnmv'
+            OR `source`.`Tracking Codes__utm_campaign` = 'mahp'
             OR `source`.`Tracking Codes__utm_campaign` = 'lfpa_ra'
             OR `source`.`Tracking Codes__utm_campaign` = 'mmor_ra'
             OR `source`.`Tracking Codes__utm_campaign` = 'smnb_ra'
@@ -77,6 +78,7 @@ WHERE
             OR `source`.`Tracking Codes__utm_campaign` = 'ana_ra'
             OR `source`.`Tracking Codes__utm_campaign` = 'erg_ra'
             OR `source`.`Tracking Codes__utm_campaign` = 'mnmv_ra'
+            OR `source`.`Tracking Codes__utm_campaign` = 'mahp_ra'
         )
     )
 GROUP BY

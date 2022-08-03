@@ -31,6 +31,7 @@ WHERE
         OR tc.utm_campaign = 'ana'
         OR tc.utm_campaign = 'erg'
         OR tc.utm_campaign = 'mnmv'
+        OR tc.utm_campaign = 'mahp'
         OR tc.utm_campaign = 'lfpa_ra'
         OR tc.utm_campaign = 'mmor_ra'
         OR tc.utm_campaign = 'smnb_ra'
@@ -51,6 +52,7 @@ WHERE
         OR tc.utm_campaign = 'ana_ra'
         OR tc.utm_campaign = 'erg_ra'
         OR tc.utm_campaign = 'mnmv_ra'
+        OR tc.utm_campaign = 'mahp_ra'
     )
     AND ooh.opportunity_id IN (
         SELECT
