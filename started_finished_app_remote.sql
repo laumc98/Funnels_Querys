@@ -1,6 +1,6 @@
 /* AA : Channel's performance : weekly started/finished app remote : prod */ 
 select
-  str_to_date(concat(yearweek(`opportunity_candidates`.`created`),' Sunday'),'%X%V %W') as date,
+  str_to_date(concat(yearweek(opportunity_candidates.created),' Sunday'),'%X%V %W') as date,
   IF(ISNULL(interested), 'started', 'finished') as finished,
   tc.utm_medium as UTM,
   count(distinct opportunity_candidates.id) as applications
