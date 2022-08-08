@@ -45,6 +45,7 @@ where
     'ja_allsgl_prs',
     'ja_rlvsgl_org',
     'ja_allsgl_org',
-    'rc_am_sug'
+    'rc_am_sug',
+    'rc_sml_jobs'
   )
 group by 1,2,3
