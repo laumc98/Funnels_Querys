@@ -58,6 +58,11 @@ WHERE
             OR `source`.`Tracking Codes__utm_campaign` = 'erg'
             OR `source`.`Tracking Codes__utm_campaign` = 'mnmv'
             OR `source`.`Tracking Codes__utm_campaign` = 'mahp'
+            OR `source`.`Tracking Codes__utm_campaign` = 'npd'
+            OR `source`.`Tracking Codes__utm_campaign` = 'llcg'
+            OR `source`.`Tracking Codes__utm_campaign` = 'lmmg'
+            OR `source`.`Tracking Codes__utm_campaign` = 'mpsm'
+            OR `source`.`Tracking Codes__utm_campaign` = 'aaam'
             OR `source`.`Tracking Codes__utm_campaign` = 'lfpa_ra'
             OR `source`.`Tracking Codes__utm_campaign` = 'mmor_ra'
             OR `source`.`Tracking Codes__utm_campaign` = 'smnb_ra'
@@ -79,6 +84,11 @@ WHERE
             OR `source`.`Tracking Codes__utm_campaign` = 'erg_ra'
             OR `source`.`Tracking Codes__utm_campaign` = 'mnmv_ra'
             OR `source`.`Tracking Codes__utm_campaign` = 'mahp_ra'
+            OR `source`.`Tracking Codes__utm_campaign` = 'npd_ra'
+            OR `source`.`Tracking Codes__utm_campaign` = 'llcg_ra'
+            OR `source`.`Tracking Codes__utm_campaign` = 'lmmg_ra'
+            OR `source`.`Tracking Codes__utm_campaign` = 'mpsm_ra'
+            OR `source`.`Tracking Codes__utm_campaign` = 'aaam_ra'
         )
     )
 GROUP BY
