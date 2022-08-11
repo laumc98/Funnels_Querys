@@ -36,7 +36,6 @@ WHERE
         OR tc.utm_campaign = 'llcg'
         OR tc.utm_campaign = 'lmmg'
         OR tc.utm_campaign = 'mpsm'
-        OR tc.utm_campaign = 'aaam'
         OR tc.utm_campaign = 'lfpa_ra'
         OR tc.utm_campaign = 'mmor_ra'
         OR tc.utm_campaign = 'smnb_ra'
@@ -62,7 +61,6 @@ WHERE
         OR tc.utm_campaign = 'llcg_ra'
         OR tc.utm_campaign = 'lmmg_ra'
         OR tc.utm_campaign = 'mpsm_ra'
-        OR tc.utm_campaign = 'aaam_ra'
     )
     AND ooh.opportunity_id IN (
         SELECT

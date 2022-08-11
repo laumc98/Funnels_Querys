@@ -64,7 +64,6 @@ WHERE
             OR `source`.`Tracking Codes__utm_campaign` = 'llcg'
             OR `source`.`Tracking Codes__utm_campaign` = 'lmmg'
             OR `source`.`Tracking Codes__utm_campaign` = 'mpsm'
-            OR `source`.`Tracking Codes__utm_campaign` = 'aaam'
             OR `source`.`Tracking Codes__utm_campaign` = 'lfpa_ra'
             OR `source`.`Tracking Codes__utm_campaign` = 'mmor_ra'
             OR `source`.`Tracking Codes__utm_campaign` = 'smnb_ra'
@@ -90,7 +89,6 @@ WHERE
             OR `source`.`Tracking Codes__utm_campaign` = 'llcg_ra'
             OR `source`.`Tracking Codes__utm_campaign` = 'lmmg_ra'
             OR `source`.`Tracking Codes__utm_campaign` = 'mpsm_ra'
-            OR `source`.`Tracking Codes__utm_campaign` = 'aaam_ra'
         )
     )
 GROUP BY
