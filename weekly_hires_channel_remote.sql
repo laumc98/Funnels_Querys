@@ -36,6 +36,7 @@ FROM
 WHERE
     (
         `source`.`hiring_date` IS NOT NULL
+        AND str_to_date(concat(yearweek(`source`.`hiring_date`),' Sunday'),'%X%V %W') = str_to_date(concat(yearweek(`source`.`interested`),' Sunday'),'%X%V %W')
         AND `source`.`hiring_date` > "2021-1-1"
         AND `source`.`hiring_date` < date(date_add(now(6), INTERVAL 1 day))
     )
