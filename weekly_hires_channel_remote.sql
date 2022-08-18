@@ -1,6 +1,6 @@
 /* AA : Channel's performance : Weekly hires remote : prod */ 
 SELECT
-    str_to_date(concat(yearweek(`source`.`hiring_date`),' Sunday'),'%X%V %W') AS `date`,
+    str_to_date(concat(yearweek(`source`.`interested`),' Sunday'),'%X%V %W') AS `date`,
     `source`.`Tracking Codes__utm_medium` AS `Tracking Codes__utm_medium`,
     count(distinct `source`.`id`) AS `weekly_hires_channel_remote`
 FROM
@@ -36,12 +36,11 @@ FROM
 WHERE
     (
         `source`.`hiring_date` IS NOT NULL
-        AND str_to_date(concat(yearweek(`source`.`hiring_date`),' Sunday'),'%X%V %W') = str_to_date(concat(yearweek(`source`.`interested`),' Sunday'),'%X%V %W')
         AND `source`.`hiring_date` > "2021-1-1"
         AND `source`.`hiring_date` < date(date_add(now(6), INTERVAL 1 day))
     )
 GROUP BY
-    str_to_date(concat(yearweek(`source`.`hiring_date`),' Sunday'),'%X%V %W'),
+    str_to_date(concat(yearweek(`source`.`interested`),' Sunday'),'%X%V %W'),
     `source`.`Tracking Codes__utm_medium`
 ORDER BY
-    str_to_date(concat(yearweek(`source`.`hiring_date`),' Sunday'),'%X%V %W') ASC
+    str_to_date(concat(yearweek(`source`.`interested`),' Sunday'),'%X%V %W') ASC

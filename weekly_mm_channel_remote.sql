@@ -1,6 +1,6 @@
 /* AA : Channel's performance : weekly mm remote : prod */ 
 SELECT
-    str_to_date(concat(yearweek(occh.created), ' Sunday'),'%X%V %W') AS 'date',
+    str_to_date(concat(yearweek(oca.interested), ' Sunday'),'%X%V %W') AS 'date',
     tc.utm_medium AS 'Tracking Codes__utm_medium',
     count(distinct occh.candidate_id) AS 'weekly_mm_channel_remote'
 FROM
@@ -15,7 +15,6 @@ WHERE
     AND occh.created >= '2021-06-01'
     AND oca.interested IS NOT NULL 
     AND o.objective NOT LIKE '**%'
-    AND str_to_date(concat(yearweek(occh.created), ' Sunday'),'%X%V %W') = str_to_date(concat(yearweek(oca.interested), ' Sunday'),'%X%V %W')
     AND o.id IN (
         SELECT
             DISTINCT o.id AS opportunity_id
@@ -31,7 +30,7 @@ WHERE
             AND o.review = 'approved'
     )
 GROUP BY
-    str_to_date(concat(yearweek(occh.created), ' Sunday'),'%X%V %W'),
+    str_to_date(concat(yearweek(oca.interested), ' Sunday'),'%X%V %W'),
     tc.utm_medium
 ORDER BY
-    str_to_date(concat(yearweek(occh.created), ' Sunday'),'%X%V %W') ASC
+    str_to_date(concat(yearweek(oca.interested), ' Sunday'),'%X%V %W') ASC
