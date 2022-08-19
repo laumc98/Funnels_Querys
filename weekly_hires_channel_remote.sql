@@ -36,6 +36,7 @@ FROM
 WHERE
     (
         `source`.`hiring_date` IS NOT NULL
+        AND `source`.`interested` IS NOT NULL
         AND `source`.`hiring_date` > "2021-1-1"
         AND `source`.`hiring_date` < date(date_add(now(6), INTERVAL 1 day))
     )
