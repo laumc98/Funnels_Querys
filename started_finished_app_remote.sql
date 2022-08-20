@@ -46,6 +46,8 @@ where
     'ja_rlvsgl_org',
     'ja_allsgl_org',
     'rc_am_sug',
-    'rc_sml_jobs'
+    'rc_sml_jobs',
+    'syn_paid',
+    'rc_syn_paid'
   )
 group by 1,2,3
