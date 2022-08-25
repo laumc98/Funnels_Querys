@@ -9,7 +9,7 @@ FROM
     LEFT JOIN tracking_codes tc ON tcc.tracking_code_id = tc.id
 WHERE
     ooh.hiring_date IS NOT NULL
-    AND ooh.hiring_date >= date(date_add(now(6), INTERVAL -60 day))
+    AND ooh.hiring_date >= '2022-05-01'
     AND (
         tc.utm_campaign = 'lfpa'
         OR tc.utm_campaign = 'mmor'
