@@ -34,7 +34,7 @@ FROM
 WHERE
     (
         `source`.`interested` IS NOT NULL
-        AND `source`.`interested` >= '2022-05-01'
+        AND `source`.`interested` >= '2022-04-03'
         AND `source`.`interested` < date(date_add(now(6), INTERVAL 1 day))
         AND (
             `source`.`Tracking Codes__utm_campaign` = 'jams'
