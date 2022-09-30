@@ -13,6 +13,7 @@ FROM
 WHERE
     oc.name = 'mutual matches'
     AND oca.interested >= '2022-03-01'
+    AND date(oca.interested) = date(occh.created)
     AND oca.interested IS NOT NULL 
     AND o.objective NOT LIKE '**%'
     AND o.id IN (
