@@ -1,6 +1,6 @@
-/* AA : channels performance : daily src mm by campaign: prod */ 
+/* AA : channels performance : daily src mm by app date: prod */ 
 SELECT
-    date(occh.created) AS 'date',
+    date(oca.interested) AS 'date',
     tc.utm_campaign AS 'utm_campaign_src_mm',
     count(distinct occh.candidate_id) AS 'count_mm_src'
 FROM
@@ -12,7 +12,7 @@ FROM
     LEFT JOIN tracking_codes tc ON tcc.tracking_code_id = tc.id
 WHERE
     oc.name = 'mutual matches'
-    AND occh.created >= '2022-05-01'
+    AND oca.interested >= '2022-05-01'
     AND oca.interested IS NOT NULL 
     AND o.objective NOT LIKE '**%'
     AND o.id IN (
@@ -90,7 +90,7 @@ WHERE
         OR tc.utm_campaign = 'bcgt_ra'
     )
 GROUP BY
-    date(occh.created),
+    date(oca.interested),
     tc.utm_campaign
 ORDER BY
     date(occh.created) ASC
