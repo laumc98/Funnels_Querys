@@ -7,7 +7,7 @@ from
     "atomic"."com_torrelabs_match_distributed_3"
 WHERE
     (
-        "atomic"."com_torrelabs_match_distributed_3"."root_tstamp" >= '2021-08-08'
+        "atomic"."com_torrelabs_match_distributed_3"."root_tstamp" >= '2021-07-17'
         AND "atomic"."com_torrelabs_match_distributed_3"."root_tstamp" < CAST(getdate() AS date)
     )
 group by model,1
