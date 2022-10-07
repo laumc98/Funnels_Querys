@@ -41,6 +41,8 @@ WHERE
         OR tc.utm_campaign = 'mbvb'
         OR tc.utm_campaign = 'ago'
         OR tc.utm_campaign = 'bcgt'
+        OR tc.utm_campaign = 'DPO'
+        OR tc.utm_campaign = 'jdmb'
         OR tc.utm_campaign = 'lfpa_ra'
         OR tc.utm_campaign = 'mmor_ra'
         OR tc.utm_campaign = 'smnb_ra'
@@ -70,6 +72,8 @@ WHERE
         OR tc.utm_campaign = 'mbvb_ra'
         OR tc.utm_campaign = 'ago_ra'
         OR tc.utm_campaign = 'bcgt_ra'
+        OR tc.utm_campaign = 'DPO_ra'
+        OR tc.utm_campaign = 'jdmb_ra'
     )
     AND ooh.opportunity_id IN (
         SELECT

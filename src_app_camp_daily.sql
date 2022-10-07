@@ -66,6 +66,8 @@ WHERE
             OR `source`.`Tracking Codes__utm_campaign` = 'mbvb'
             OR `source`.`Tracking Codes__utm_campaign` = 'ago'
             OR `source`.`Tracking Codes__utm_campaign` = 'bcgt'
+            OR `source`.`Tracking Codes__utm_campaign` = 'DPO'
+            OR `source`.`Tracking Codes__utm_campaign` = 'jdmb'
             OR `source`.`Tracking Codes__utm_campaign` = 'lfpa_ra'
             OR `source`.`Tracking Codes__utm_campaign` = 'mmor_ra'
             OR `source`.`Tracking Codes__utm_campaign` = 'smnb_ra'
@@ -95,6 +97,8 @@ WHERE
             OR `source`.`Tracking Codes__utm_campaign` = 'mbvb_ra'
             OR `source`.`Tracking Codes__utm_campaign` = 'ago_ra'
             OR `source`.`Tracking Codes__utm_campaign` = 'bcgt_ra'
+            OR `source`.`Tracking Codes__utm_campaign` = 'DPO_ra'
+            OR `source`.`Tracking Codes__utm_campaign` = 'jdmb_ra'
         )
     )
 GROUP BY
