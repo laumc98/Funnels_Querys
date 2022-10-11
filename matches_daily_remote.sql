@@ -1,15 +1,12 @@
 /* AA : Channel's performance : daily job matches remote : prod */
 SELECT
-    date("snowplow"."com_torrelabs_match_distributed_3"."root_tstamp") AS daily_date,
+    date("atomic"."com_torrelabs_match_distributed_3"."root_tstamp") as daily_date,
     model,
-    opportunity_ref AS AlfaID
+    count(*) AS daily_count
 FROM
-    "snowplow"."com_torrelabs_match_distributed_3"
+    "atomic"."com_torrelabs_match_distributed_3"
 WHERE
     (
-        "snowplow"."com_torrelabs_match_distributed_3"."root_tstamp" >= '2021-07-17'
+        "atomic"."com_torrelabs_match_distributed_3"."root_tstamp" >= '2021-08-08'
     )
-GROUP BY
-    date("snowplow"."com_torrelabs_match_distributed_3"."root_tstamp"),
-    model,
-    opportunity_ref
+GROUP BY 1,2
