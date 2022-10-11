@@ -18,6 +18,4 @@ FROM
             AND notifications.status = 'sent'
             AND notifications.sent_at >= '2021-08-15'
         )
-    GROUP BY 
-        date(notifications.sent_at)
 ) notif 
