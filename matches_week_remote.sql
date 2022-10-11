@@ -10,6 +10,6 @@ WHERE
         "snowplow"."com_torrelabs_match_distributed_3"."root_tstamp" >= '2021-07-17'
     )
 GROUP BY
-    (CAST(date_trunc('week',CAST(("snowplow"."com_torrelabs_match_distributed_3"."root_tstamp" + (INTERVAL '1 day')) AS timestamp)) AS timestamp) + (INTERVAL '-1 day')) as date,
+    (CAST(date_trunc('week',CAST(("snowplow"."com_torrelabs_match_distributed_3"."root_tstamp" + (INTERVAL '1 day')) AS timestamp)) AS timestamp) + (INTERVAL '-1 day')),
     model,
     opportunity_ref
