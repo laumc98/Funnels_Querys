@@ -1,25 +1,24 @@
 /* AA : Channel's performance : ccgs notifications : prod */
 SELECT
-   str_to_date(concat(yearweek(notif.notifications_date), ' Sunday'),'%X%V %W') AS `date`,
-   date(notif.notifications_date) AS `daily_date`,
-   notif.sent_notifications as `count_ccgs`
+   str_to_date(concat(yearweek(notif.date), ' Sunday'),'%X%V %W') AS `date`,
+   date(notif.date) AS `daily_date`,
+   notif.AlfaID as 'AlfaID'
 FROM
    (
       SELECT
-         date(career_advisor.deleted) AS notifications_date,
-         count(*) AS sent_notifications
+         date(notifications.send_at) AS 'date',
+         TRIM('"' FROM JSON_EXTRACT(notifications.context, '$.opportunityId')) as 'AlfaID'
       FROM
-         career_advisor
-         LEFT JOIN people ON career_advisor.person_id = people.id
+         notifications
+         LEFT JOIN people ON notifications.to = people.id
       WHERE
          (
-            career_advisor.current = 'career-advisor-job-opportunity'
-            OR career_advisor.current = 'career-advisor-invited-job-opportunity'
+            (notifications.template = 'career-advisor-job-opportunity'
+                  or notifications.template = 'career-advisor-invited-job-opportunity')
+            AND notifications.status = 'sent'
+            AND people.subject_identifier IS NULL
+            AND people.name not like '%test%'
          )
-         AND career_advisor.notification_status = 'sent'
-         AND career_advisor.active = false
-         AND people.subject_identifier IS NULL
-         AND career_advisor.deleted >= '2022-07-17'
       GROUP BY
-         date(career_advisor.deleted)
+         date(notifications.send_at)
    ) notif
