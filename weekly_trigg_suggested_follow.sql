@@ -13,6 +13,4 @@ FROM
         notifications.template = 'career-advisor-manual-invited-reminder'
         AND notifications.status = 'sent'
         AND notifications.sent_at >= '2021-08-15'
-    GROUP BY 
-        date(notifications.sent_at)
 ) notif

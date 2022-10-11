@@ -19,6 +19,4 @@ FROM
             AND people.subject_identifier IS NULL
             AND people.name not like '%test%'
          )
-      GROUP BY
-         date(notifications.send_at)
    ) notif

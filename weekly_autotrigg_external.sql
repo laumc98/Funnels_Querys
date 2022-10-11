@@ -2,7 +2,7 @@
 SELECT
     str_to_date(concat(yearweek(notif.date), ' Sunday'),'%X%V %W') AS 'date',
     date(notif.date) as 'daily_date',
-    notif.ID  
+    notif.id  
 FROM
 (
     SELECT
