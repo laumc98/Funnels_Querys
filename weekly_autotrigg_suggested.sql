@@ -1,15 +1,23 @@
 /* AA : Channel's performance : weekly autotrigg sugg notifications : prod */ 
 SELECT
-    str_to_date(concat(yearweek(`notifications`.`sent_at`), ' Sunday'),'%X%V %W') AS `date`,
-    count(*) AS `count_trigg_sugg`
+    str_to_date(concat(yearweek(notif.date), ' Sunday'),'%X%V %W') AS 'date',
+    date(notif.date) as 'daily_date',
+    notif.ID  
 FROM
-    `notifications`
-WHERE
-    (
+(
+    SELECT
+        date(notifications.sent_at) AS 'date',
+        TRIM('"' FROM JSON_EXTRACT(notifications.context, '$.opportunityId')) as 'id'
+    FROM
+        notifications
+    WHERE
         (
-            `notifications`.`template` = 'talent-candidate-manually-invited'
+            (
+                notifications.template = 'talent-candidate-manually-invited'
+            )
+            AND notifications.status = 'sent'
+            AND notifications.sent_at >= '2021-08-15'
         )
-        AND `notifications`.`status` = 'sent'
-        AND `notifications`.`sent_at` >= '2021-09-01'
-    )
-GROUP BY 1
+    GROUP BY 
+        date(notifications.sent_at)
+) notif 
