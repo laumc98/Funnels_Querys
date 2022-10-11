@@ -5,5 +5,4 @@ SELECT
 FROM
     opportunities o
 WHERE 
-    (o.created >= date(date_add(now(6), INTERVAL -1 day))
-   AND o.created < date(now(6)))
+    o.created >= date(date_add(now(6), INTERVAL -1 day))
