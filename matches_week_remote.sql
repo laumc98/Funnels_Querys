@@ -8,6 +8,6 @@ FROM
     "snowplow"."com_torrelabs_match_distributed_3"
 WHERE
     (
-        "snowplow"."com_torrelabs_match_distributed_3"."root_tstamp" >= '2021-08-17'
+        "snowplow"."com_torrelabs_match_distributed_3"."root_tstamp" >= '2021-08-8'
     )
 GROUP BY 1,2,3
