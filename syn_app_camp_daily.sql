@@ -41,6 +41,7 @@ WHERE
             OR `source`.`Tracking Codes__utm_campaign` = 'lfrr'
             OR `source`.`Tracking Codes__utm_campaign` = 'mmam'
             OR `source`.`Tracking Codes__utm_campaign` = 'cals'
+            OR `source`.`Tracking Codes__utm_campaign` = 'wers'
         )
     )
 GROUP BY

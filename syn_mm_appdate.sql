@@ -34,6 +34,7 @@ WHERE
         OR tc.utm_campaign = 'lfrr'
         OR tc.utm_campaign = 'mmam'
         OR tc.utm_campaign = 'cals'
+        OR tc.utm_campaign = 'wers'
     )
 GROUP BY
     date(oca.interested),
