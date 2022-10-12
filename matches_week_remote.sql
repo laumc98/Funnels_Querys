@@ -2,7 +2,8 @@
 SELECT
     date("snowplow"."com_torrelabs_match_distributed_3"."root_tstamp") as date,
     model,
-    opportunity_ref AS AlfaID
+    opportunity_ref AS AlfaID,
+    count(*)
 FROM
     "snowplow"."com_torrelabs_match_distributed_3"
 WHERE
