@@ -11,7 +11,7 @@ FROM
     LEFT JOIN tracking_codes tc ON tcc.tracking_code_id = tc.id 
 WHERE
     oc.interested IS NOT NULL 
-    AND oc.interested > '2022-1-1'
+    AND oc.interested > '2022-5-1'
     AND o.objective NOT LIKE '**%'
     AND oc.application_step IS NOT NULL
     AND o.id IN (
