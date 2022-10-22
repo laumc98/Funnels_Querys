@@ -1,7 +1,8 @@
 /* AA : Channel's performance : daily started/finished app remote : prod */ 
 select
-  date(opportunity_candidates.created) as `daily_date`,
+  date(opportunity_candidates.created) as daily_date,
   IF(ISNULL(interested), 'started', 'finished') as finished,
+  o.fulfillment,
   tc.utm_medium as UTM,
   count(distinct opportunity_candidates.id) as daily_applications
 from
@@ -48,4 +49,4 @@ where
     'rc_am_sug',
     'rc_sml_jobs'
   )
-group by 1,2,3
+group by 1,2,3,4
