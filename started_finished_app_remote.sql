@@ -1,6 +1,7 @@
 /* AA : Channel's performance : weekly started/finished app remote : prod */ 
 select
   str_to_date(concat(yearweek(opportunity_candidates.created),' Sunday'),'%X%V %W') as date,
+  o.fulfillment,
   IF(ISNULL(interested), 'started', 'finished') as finished,
   tc.utm_medium as UTM,
   count(distinct opportunity_candidates.id) as applications
@@ -50,4 +51,4 @@ where
     'syn_paid',
     'rc_syn_paid'
   )
-group by 1,2,3
+group by 1,2,3,4
