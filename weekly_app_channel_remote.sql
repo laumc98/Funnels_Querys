@@ -1,6 +1,7 @@
 /* AA : Channel's performance : weekly app remote : prod */ 
 SELECT
     str_to_date(concat(yearweek(oc.interested), ' Sunday'),'%X%V %W') AS 'date',
+    o.fulfillment AS 'fulfillment',
     tc.utm_medium AS 'Tracking Codes__utm_medium',
     count(distinct oc.id) AS 'weekly_app_channel_remote'
 FROM
@@ -29,4 +30,5 @@ WHERE
     )
 GROUP BY 
     str_to_date(concat(yearweek(oc.interested), ' Sunday'),'%X%V %W'),
+    o.fulfillment,
     tc.utm_medium

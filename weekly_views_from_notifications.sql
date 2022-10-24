@@ -1,21 +1,23 @@
 SELECT
-    (CAST(date_trunc('week',CAST(("atomic"."events"."collector_tstamp" + (INTERVAL '1 day')) AS timestamp)) AS timestamp) + (INTERVAL '-1 day')) AS "date",
-    "atomic"."events"."mkt_medium" AS "UTM",
-    count(distinct "atomic"."events"."domain_userid") AS "weekly_views_notifications"
+    (CAST(date_trunc('week',CAST(("snowplow"."events"."collector_tstamp" + (INTERVAL '1 day')) AS timestamp)) AS timestamp) + (INTERVAL '-1 day')) AS "date",
+    SUBSTRING("snowplow"."events"."page_urlpath",7,8) as "Alfa ID",
+    "snowplow"."events"."mkt_medium" AS "UTM",
+    count(distinct "snowplow"."events"."domain_userid") AS "weekly_views_notifications"
 FROM
-    "atomic"."events"
+    "snowplow"."events"
 WHERE
     (
-        "atomic"."events"."event" = 'page_view'
+        "snowplow"."events"."event" = 'page_view'
         AND (
-            lower("atomic"."events"."page_url") like '%post%'
+            lower("snowplow"."events"."page_url") like '%post%'
         )
         AND (
-            lower("atomic"."events"."page_urlpath") like '%post%'
+            lower("snowplow"."events"."page_urlpath") like '%post%'
         )
     )
 GROUP BY
-    (CAST(date_trunc('week',CAST(("atomic"."events"."collector_tstamp" + (INTERVAL '1 day')) AS timestamp)) AS timestamp) + (INTERVAL '-1 day')),
-    "atomic"."events"."mkt_medium"
+    (CAST(date_trunc('week',CAST(("snowplow"."events"."collector_tstamp" + (INTERVAL '1 day')) AS timestamp)) AS timestamp) + (INTERVAL '-1 day')),
+    "snowplow"."events"."mkt_medium",
+    SUBSTRING("snowplow"."events"."page_urlpath",7,8)
 ORDER BY
-    (CAST(date_trunc('week',CAST(("atomic"."events"."collector_tstamp" + (INTERVAL '1 day')) AS timestamp)) AS timestamp) + (INTERVAL '-1 day')) ASC
+    (CAST(date_trunc('week',CAST(("snowplow"."events"."collector_tstamp" + (INTERVAL '1 day')) AS timestamp)) AS timestamp) + (INTERVAL '-1 day')) ASC
