@@ -35,7 +35,15 @@ WHERE
         OR tc.utm_campaign = 'mmam'
         OR tc.utm_campaign = 'cals'
         OR tc.utm_campaign = 'wers'
+        OR tc.utm_campaign = 'amdm'
+        OR tc.utm_campaign = 'mmor'
+        OR tc.utm_campaign = 'mcog'
+        OR tc.utm_campaign = 'dffa'
+        OR tc.utm_campaign = 'czp'
+        OR tc.utm_campaign = 'jdpb'
+        OR tc.utm_campaign = 'dmc'
     )
+    AND tc.utm_medium IN ('syn','rc_syn')
 GROUP BY
     date(occh.created),
     tc.utm_campaign

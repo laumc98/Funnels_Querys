@@ -92,7 +92,14 @@ WHERE
         OR tc.utm_campaign = 'bcgt_ra'
         OR tc.utm_campaign = 'DPO_ra'
         OR tc.utm_campaign = 'jdmb_ra'
+        OR tc.utm_campaign = 'amdm'
+        OR tc.utm_campaign = 'mcog'
+        OR tc.utm_campaign = 'dffa'
+        OR tc.utm_campaign = 'czp'
+        OR tc.utm_campaign = 'jdpb'
+        OR tc.utm_campaign = 'dmc'
     )
+    AND tc.utm_medium IN ('src','rc_src')
 GROUP BY
     date(occh.created),
     tc.utm_campaign

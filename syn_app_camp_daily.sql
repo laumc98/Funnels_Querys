@@ -42,7 +42,15 @@ WHERE
             OR `source`.`Tracking Codes__utm_campaign` = 'mmam'
             OR `source`.`Tracking Codes__utm_campaign` = 'cals'
             OR `source`.`Tracking Codes__utm_campaign` = 'wers'
+            OR `source`.`Tracking Codes__utm_campaign` = 'amdm'
+            OR `source`.`Tracking Codes__utm_campaign` = 'mmor'
+            OR `source`.`Tracking Codes__utm_campaign` = 'mcog'
+            OR `source`.`Tracking Codes__utm_campaign` = 'dffa'
+            OR `source`.`Tracking Codes__utm_campaign` = 'czp'
+            OR `source`.`Tracking Codes__utm_campaign` = 'jdpb'
+            OR `source`.`Tracking Codes__utm_campaign` = 'dmc'
         )
+        AND `source`.`Tracking Codes__utm_medium` IN ('syn','rc_syn')
     )
 GROUP BY
     date(`source`.`interested`),
