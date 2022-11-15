@@ -105,7 +105,6 @@ WHERE
             OR `source`.`Tracking Codes__utm_campaign` = 'czp'
             OR `source`.`Tracking Codes__utm_campaign` = 'jdpb'
             OR `source`.`Tracking Codes__utm_campaign` = 'dmc'
-            OR `source`.`Tracking Codes__utm_campaign` = 'nsr'
         )
         AND `source`.`Tracking Codes__utm_medium` IN ('src','rc_src')
     )

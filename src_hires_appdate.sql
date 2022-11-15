@@ -80,7 +80,6 @@ WHERE
         OR tc.utm_campaign = 'czp'
         OR tc.utm_campaign = 'jdpb'
         OR tc.utm_campaign = 'dmc'
-        OR tc.utm_campaign = 'nsr'
     )
     AND tc.utm_medium IN ('src','rc_src')
     AND ooh.opportunity_id IN (
