@@ -19,6 +19,7 @@ WHERE
         OR tc.utm_campaign = 'jdpb'
         OR tc.utm_campaign = 'dmc'
         OR tc.utm_campaign = 'nsr'
+        OR tc.utm_campaign = 'mmor'
     )
     AND tc.utm_medium IN ('src','rc_src','rc_src_trxx_inv','syn','rc_syn','rc_syn_trrx_inv','syn_paid','rc_syn_paid')
 GROUP BY 
