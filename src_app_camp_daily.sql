@@ -99,14 +99,7 @@ WHERE
             OR `source`.`Tracking Codes__utm_campaign` = 'bcgt_ra'
             OR `source`.`Tracking Codes__utm_campaign` = 'DPO_ra'
             OR `source`.`Tracking Codes__utm_campaign` = 'jdmb_ra'
-            OR `source`.`Tracking Codes__utm_campaign` = 'amdm'
-            OR `source`.`Tracking Codes__utm_campaign` = 'mcog'
-            OR `source`.`Tracking Codes__utm_campaign` = 'dffa'
-            OR `source`.`Tracking Codes__utm_campaign` = 'czp'
-            OR `source`.`Tracking Codes__utm_campaign` = 'jdpb'
-            OR `source`.`Tracking Codes__utm_campaign` = 'dmc'
         )
-        AND `source`.`Tracking Codes__utm_medium` IN ('src','rc_src')
     )
 GROUP BY
     date(`source`.`interested`),
