@@ -28,4 +28,4 @@ WHERE
     )
 GROUP BY
     date,
-    utm_campaign
+    cr_campaign
