@@ -12,6 +12,7 @@ WHERE
             OR notifications.template = 'career-advisor-sourcing-first-evaluation-matrix-c'
             OR notifications.template = 'career-advisor-sourcing-first-evaluation-matrix-a'
             OR notifications.template = 'career-advisor-sourcing-first-evaluation-matrix-b'
+            OR notifications.template = 'career-advisor-sourcing-already-exist'
         )
         AND date(notifications.sent_at) >= '2022-10-29'
         AND notifications.status = 'sent'
