@@ -6,13 +6,13 @@ SELECT
 FROM
 (
         SELECT
-            no.send_at as 'notifications_date',
+            no.sent_at as 'notifications_date',
             TRIM('"' FROM JSON_EXTRACT(no.context, '$.opportunityId')) as AlfaID
         FROM
             notifications no
         WHERE
             no.template = 'career-advisor-invited-job-opportunity'
-            AND no.send_at >= "2021-08-01"
-            AND no.send_at < date(date_add(now(6), INTERVAL 1 day))
+            AND no.sent_at >= "2021-08-01"
+            AND no.sent_at < date(date_add(now(6), INTERVAL 1 day))
             AND no.status = 'sent'
 ) notif

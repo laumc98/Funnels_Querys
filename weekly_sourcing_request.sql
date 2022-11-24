@@ -6,7 +6,7 @@ SELECT
 FROM
 (
         SELECT
-            `notifications`.`send_at` AS `notifications_date`,
+            `notifications`.`sent_at` AS `notifications_date`,
             TRIM('"' FROM JSON_EXTRACT(`notifications`.`context`, '$.opportunityId')) as `AlfaID`
         FROM
             `notifications`
