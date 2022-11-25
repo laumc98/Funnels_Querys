@@ -1,6 +1,7 @@
 /* AA : channel performance : src requests by candidate recruiters: prod */ 
 SELECT
     date(notifications.sent_at) AS date,
+    TRIM('"' FROM JSON_EXTRACT(notifications.context, '$.opportunityId')) AS AlfaID,
     TRIM('"' FROM JSON_EXTRACT(notifications.context, '$.utmCampaign')) AS cr_campaign,
     count(distinct notifications.id) AS requests
 FROM
@@ -29,4 +30,5 @@ WHERE
     )
 GROUP BY
     date,
+    AlfaID,
     cr_campaign
