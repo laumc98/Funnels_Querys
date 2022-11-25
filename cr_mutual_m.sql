@@ -2,6 +2,7 @@
 SELECT
     date(occh.created) AS 'date',
     o.id AS ID,
+    o.fulfillment,
     tc.utm_medium AS 'utm_medium',
     tc.utm_campaign AS 'cr_campaign',
     count(distinct occh.candidate_id) AS 'mutualm'
@@ -28,6 +29,7 @@ WHERE
 GROUP BY
     date(occh.created),
     o.id,
+    o.fulfillment,
     tc.utm_medium,
     tc.utm_campaign
 ORDER BY

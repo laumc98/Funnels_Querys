@@ -2,6 +2,7 @@
 SELECT
     date(oca.interested) AS 'date',
     o.id AS ID,
+    o.fulfillment,
     tc.utm_medium AS 'utm_medium',
     tc.utm_campaign AS 'cr_campaign',
     count(distinct occh.candidate_id) AS 'ready_for_interview'
@@ -29,5 +30,6 @@ WHERE
 GROUP BY
     date(oca.interested),
     o.id,
+    o.fulfillment,
     tc.utm_medium,
     tc.utm_campaign

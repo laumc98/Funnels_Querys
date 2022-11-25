@@ -2,6 +2,7 @@
 SELECT
   date(opportunity_candidates.created) AS 'date',
   o.id AS ID,
+  o.fulfillment,
   tc.utm_medium AS 'utm_medium',
   tc.utm_campaign AS 'cr_campaign',
   IF(ISNULL(interested), 'started', 'finished') AS 'finished',
@@ -16,4 +17,4 @@ WHERE
   AND o.objective not like '***%'
   AND tc.utm_medium IN ('src','rc_src','rc_src_trxx_inv','rc_syn','syn_paid','rc_syn_paid','rc_syn_trrx_inv')
   AND tc.utm_campaign IN ('amdm','mcog','dffa','czp','jdpb','dmc','nsr','mmor')
-GROUP BY 1,2,3,4,5
+GROUP BY 1,2,3,4,5,6
