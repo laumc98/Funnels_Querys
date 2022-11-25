@@ -1,4 +1,4 @@
-/* AA : Channel's performance : opp proficiency : prod */ 
+/* AA : Channel's performance : opp fulfillment : prod */ 
 SELECT
     o.id,
     o.fulfillment
