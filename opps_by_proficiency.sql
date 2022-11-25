@@ -1,8 +1,8 @@
 /* AA : Channel's performance : opp proficiency : prod */ 
 SELECT
-    ID,
+    g.opportunity_id AS ID,
     CASE
-        GREATEST(ifnull(years, 0), ifnull(prof_years, 0))
+        GREATEST(ifnull(g.years, 0), ifnull(g.prof_years, 0))
         WHEN 0 THEN 'novice'
         WHEN 1 THEN 'novice'
         WHEN 2 THEN 'novice'
@@ -48,16 +48,7 @@ FROM
             AND o.objective NOT LIKE '**%'
             AND date(coalesce(null, o.first_reviewed, o.last_reviewed)) >= '2021/01/01'
             AND o.review = 'approved'
+            AND o.created >= date(date_add(now(6), INTERVAL -1 day))
         GROUP BY
             o.id
     ) g
-    INNER JOIN (
-        SELECT
-            DISTINCT o.id
-        FROM
-            opportunities o
-            INNER JOIN opportunity_members omp ON omp.opportunity_id = o.id
-            AND omp.poster = TRUE
-            INNER JOIN person_flags pf ON pf.person_id = omp.person_id
-            AND pf.opportunity_crawler = false
-    ) not_crawled ON g.opportunity_id = not_crawled.id;
