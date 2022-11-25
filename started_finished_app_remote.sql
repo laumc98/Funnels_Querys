@@ -51,4 +51,4 @@ where
     'syn_paid',
     'rc_syn_paid'
   )
-group by 1,2,3,4,
+group by 1,2,3,4
