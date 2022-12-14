@@ -1,6 +1,6 @@
-/* AA : channel performance : mutual matches by candidate recruiters: prod */ 
+/* AA : channel performance : mutual matches per app date by candidate recruiters: prod */ 
 SELECT
-    date(occh.created) AS 'date',
+    date(oca.interested) AS 'date',
     o.id AS ID,
     o.fulfillment,
     tc.utm_medium AS 'utm_medium',
@@ -15,7 +15,9 @@ FROM
     LEFT JOIN tracking_codes tc ON tcc.tracking_code_id = tc.id
 WHERE
     oc.name = 'mutual matches'
-    AND occh.created >= "2022-10-20"
+    AND oca.interested IS NOT NULL 
+    AND oca.interested >= '2022-10-20'
+    AND date(oca.interested) = date(occh.created)
     AND (tc.utm_campaign = 'amdm'
         OR tc.utm_campaign = 'mcog'
         OR tc.utm_campaign = 'dffa'
@@ -27,10 +29,10 @@ WHERE
     )
     AND tc.utm_medium IN ('src','rc_src','rc_src_trxx_inv','syn','rc_syn','rc_syn_trrx_inv','syn_paid','rc_syn_paid')
 GROUP BY
-    date(occh.created),
+    date(oca.interested),
     o.id,
     o.fulfillment,
     tc.utm_medium,
     tc.utm_campaign
 ORDER BY
-    date(occh.created) ASC
+    date(oca.interested) ASC

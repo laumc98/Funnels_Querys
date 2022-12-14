@@ -13,7 +13,7 @@ FROM
     LEFT JOIN tracking_codes tc ON tcc.tracking_code_id = tc.id 
 WHERE
     oc.interested IS NOT NULL 
-    AND oc.interested >= date(date_add(now(6), INTERVAL -3 month))
+    AND oc.interested >=  "2022-10-20"
     AND (tc.utm_campaign = 'amdm'
         OR tc.utm_campaign = 'mcog'
         OR tc.utm_campaign = 'dffa'

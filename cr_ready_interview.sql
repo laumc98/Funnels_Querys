@@ -15,7 +15,7 @@ FROM
     LEFT JOIN tracking_codes tc ON tcc.tracking_code_id = tc.id
 WHERE
     oc.funnel_tag = 'ready_for_interview'
-    AND occh.created >= date(date_add(now(6), INTERVAL -3 month))
+    AND occh.created >= "2022-10-20"
     AND oca.interested IS NOT NULL 
     AND (tc.utm_campaign = 'amdm'
         OR tc.utm_campaign = 'mcog'

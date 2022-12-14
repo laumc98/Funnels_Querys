@@ -13,7 +13,7 @@ FROM
   LEFT JOIN tracking_code_candidates as tcc
   LEFT JOIN tracking_codes as tc on tcc.tracking_code_id = tc.id on tcc.candidate_id = opportunity_candidates.id
 WHERE
-  opportunity_candidates.created >= "2022-10-01"
+  opportunity_candidates.created >= "2022-10-20"
   AND o.objective not like '***%'
   AND tc.utm_medium IN ('src','rc_src','rc_src_trxx_inv','rc_syn','syn_paid','rc_syn_paid','rc_syn_trrx_inv')
   AND tc.utm_campaign IN ('amdm','mcog','dffa','czp','jdpb','dmc','nsr','mmor')
