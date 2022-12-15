@@ -15,6 +15,6 @@ FROM
 WHERE
   opportunity_candidates.created >= "2022-10-20"
   AND o.objective not like '***%'
-  AND tc.utm_medium IN ('src','rc_src','rc_src_trxx_inv','rc_syn','syn_paid','rc_syn_paid','rc_syn_trrx_inv')
+  AND tc.utm_medium IN ('src','rc_src','rc_src_trxx_inv','syn','rc_syn','syn_paid','rc_syn_paid','rc_syn_trrx_inv')
   AND tc.utm_campaign IN ('amdm','mcog','dffa','czp','jdpb','dmc','nsr','mmor')
 GROUP BY 1,2,3,4,5,6
