@@ -5,4 +5,4 @@ SELECT
 FROM
     opportunities o
 WHERE 
-    o.created >= date(date_add(now(6), INTERVAL -1 year))
+    o.created >= '2021-01-01'
