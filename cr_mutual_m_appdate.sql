@@ -15,9 +15,7 @@ FROM
     LEFT JOIN tracking_codes tc ON tcc.tracking_code_id = tc.id
 WHERE
     oc.name = 'mutual matches'
-    AND oca.interested IS NOT NULL 
     AND oca.interested >= '2022-10-20'
-    AND date(oca.interested) = date(occh.created)
     AND (tc.utm_campaign = 'amdm'
         OR tc.utm_campaign = 'mcog'
         OR tc.utm_campaign = 'dffa'
