@@ -1,7 +1,6 @@
 /* AA : Channel's performance : Daily mm remote : prod */ 
 SELECT
     date(occh.created) AS 'daily_date',
-    o.id AS 'ID',
     o.fulfillment AS 'fulfillment',
     tc.utm_medium AS 'Tracking Codes__utm_medium',
     count(distinct occh.candidate_id) AS 'daily_mm_channel_remote'
@@ -34,5 +33,4 @@ WHERE
 GROUP BY
     date(occh.created),
     tc.utm_medium,
-    o.id,
     o.fulfillment

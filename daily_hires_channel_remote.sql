@@ -1,7 +1,6 @@
 /* AA : Channel's performance : Daily hires remote : prod */ 
 SELECT
     date(ooh.hiring_date) AS 'daily_date',
-    o.id AS 'ID',
     o.fulfillment AS 'fulfillment',
     tc.utm_medium AS 'Tracking Codes__utm_medium',
     count(distinct ooh.opportunity_candidate_id) AS 'daily_hires_channel_remote'
@@ -30,5 +29,4 @@ WHERE
 GROUP BY
     date(ooh.hiring_date),
     tc.utm_medium,
-    o.id,
     o.fulfillment

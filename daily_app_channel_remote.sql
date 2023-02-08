@@ -1,7 +1,6 @@
 /* AA : Channel's performance : Daily app remote : prod */ 
 SELECT
     date(oc.interested) AS 'daily_date',
-    o.id AS 'ID',
     o.fulfillment AS 'fulfillment',
     tc.utm_medium AS 'Tracking Codes__utm_medium',
     count(distinct oc.id) AS 'daily_app_channel_remote'
@@ -32,5 +31,4 @@ WHERE
 GROUP BY 
     date(oc.interested),
     tc.utm_medium,
-    o.id,
     o.fulfillment
