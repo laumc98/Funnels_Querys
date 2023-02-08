@@ -12,7 +12,7 @@ FROM
     LEFT JOIN tracking_codes tc ON tcc.tracking_code_id = tc.id 
 WHERE
     oc.interested IS NOT NULL 
-    AND oc.interested >= date(date_add(now(6), INTERVAL -5 month))
+    AND date(oc.interested) >= '2022/08/01'
     AND o.objective NOT LIKE '**%'
     AND oc.application_step IS NOT NULL
     AND o.id IN (
