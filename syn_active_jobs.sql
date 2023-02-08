@@ -1,6 +1,6 @@
 /* AA : Channel's performance : syn active jobs : prod */ 
 SELECT
-    date(opportunity_channels.created) as date,
+    date(opportunity_channels.created) as daily_date,
     opportunity_channels.opportunity_reference_id as 'AlfaID'
 FROM 
     opportunity_channels
