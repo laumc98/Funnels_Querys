@@ -12,7 +12,7 @@ FROM
     LEFT JOIN opportunities o ON ooh.opportunity_id = o.id
 WHERE
     ooh.hiring_date IS NOT NULL 
-    AND date(ooh.hiring_date) >= '2022/08/01'
+    AND date(ooh.hiring_date) >= '2022/09/01'
     AND ooh.opportunity_id IN (
         SELECT
             DISTINCT o.id AS opportunity_id

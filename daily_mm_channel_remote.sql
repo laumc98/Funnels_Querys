@@ -14,7 +14,7 @@ FROM
     LEFT JOIN tracking_codes tc ON tcc.tracking_code_id = tc.id
 WHERE
     oc.name = 'mutual matches'
-    AND date(occh.created) >= '2022/08/01'
+    AND date(occh.created) >= '2022/09/01'
     AND oca.interested IS NOT NULL 
     AND o.objective NOT LIKE '**%'
     AND o.id IN (
