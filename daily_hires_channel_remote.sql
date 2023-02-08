@@ -12,7 +12,7 @@ FROM
     LEFT JOIN opportunities o ON ooh.opportunity_id = o.id
 WHERE
     ooh.hiring_date IS NOT NULL 
-    AND ooh.hiring_date >= date(date_add(now(6), INTERVAL -3 month))
+    AND ooh.hiring_date >= date(date_add(now(6), INTERVAL -5 month))
     AND ooh.opportunity_id IN (
         SELECT
             DISTINCT o.id AS opportunity_id
