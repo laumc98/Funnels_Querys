@@ -1,6 +1,6 @@
 /* AA : Channel's performance : syn active jobs : prod */ 
 SELECT
-    date(opportunity_channels.created) as daily_date,
+    str_to_date(concat(yearweek(opportunity_channels.created), ' Sunday'),'%X%V %W') as date,
     opportunity_channels.opportunity_reference_id as 'AlfaID'
 FROM 
     opportunity_channels
@@ -10,5 +10,5 @@ WHERE
     AND opportunity.max_proficiency <> 'EXPERT'
     AND opportunity.max_proficiency <> 'MASTER'
 GROUP BY
-    date(opportunity_channels.created),
+    str_to_date(concat(yearweek(opportunity_channels.created), ' Sunday'),'%X%V %W'),
     opportunity_channels.opportunity_reference_id
