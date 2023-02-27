@@ -22,7 +22,8 @@ WHERE
             'jdpb',
             'dmc',
             'nsr',
-            'mmor'
+            'mmor',
+            'JAMC'
         )
     )
 GROUP BY

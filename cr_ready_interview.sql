@@ -25,6 +25,7 @@ WHERE
         OR tc.utm_campaign = 'dmc'
         OR tc.utm_campaign = 'nsr'
         OR tc.utm_campaign = 'mmor'
+        OR tc.utm_campaign = 'JAMC'
     )
     AND tc.utm_medium IN ('src','rc_src','rc_src_trrx_inv','syn','rc_syn','rc_syn_trrx_inv','syn_paid','rc_syn_paid','rc_syn_paid_trrx_inv')
 GROUP BY
