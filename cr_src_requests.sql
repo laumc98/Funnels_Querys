@@ -26,7 +26,13 @@ WHERE
             'dmc',
             'nsr',
             'mmor',
-            'JAMC'
+            'JAMC',
+            'mgdd',
+            'mrh',
+            'srl',
+            'avs',
+            'sbr',
+            'tavp'
         )
     )
 GROUP BY

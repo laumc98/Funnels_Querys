@@ -23,6 +23,12 @@ WHERE
         OR tc.utm_campaign = 'nsr'
         OR tc.utm_campaign = 'mmor'
         OR tc.utm_campaign = 'JAMC'
+        OR tc.utm_campaign = 'mgdd'
+        OR tc.utm_campaign = 'mrh'
+        OR tc.utm_campaign = 'srl'
+        OR tc.utm_campaign = 'avs'
+        OR tc.utm_campaign = 'sbr'
+        OR tc.utm_campaign = 'tavp'
     )
     AND tc.utm_medium IN ('src','rc_src','rc_src_trrx_inv','syn','rc_syn','rc_syn_trrx_inv','syn_paid','rc_syn_paid','rc_syn_paid_trrx_inv')
 GROUP BY
