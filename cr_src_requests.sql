@@ -32,7 +32,9 @@ WHERE
             'srl',
             'avs',
             'sbr',
-            'tavp'
+            'tavp',
+            'rmr' ,
+            'dgv'
         )
     )
 GROUP BY
