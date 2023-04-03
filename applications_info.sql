@@ -10,4 +10,4 @@ FROM
     LEFT JOIN opportunities ON opportunity_candidates.opportunity_id = opportunities.id
 WHERE 
     opportunity_candidates.interested IS NOT NULL 
-    AND opportunity_candidates.interested > '2023-03-06'
+    AND opportunity_candidates.interested > '2022-10-25'
