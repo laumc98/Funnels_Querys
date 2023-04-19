@@ -35,6 +35,7 @@ WHERE
             'MER',
             'ACMP'
     )
+    )
 GROUP BY
     date,
     AlfaID,
