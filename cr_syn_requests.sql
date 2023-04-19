@@ -32,7 +32,7 @@ WHERE
             'tavp',
             'rmr',
             'dgv',
-            'MER' ,
+            'MER',
             'ACMP'
     )
 GROUP BY
