@@ -31,8 +31,9 @@ WHERE
             'sbr',
             'tavp',
             'rmr',
-            'dgv'
-        )
+            'dgv',
+            'MER' ,
+            'ACMP'
     )
 GROUP BY
     date,
