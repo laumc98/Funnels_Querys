@@ -3,7 +3,7 @@ SELECT
     date(oc.interested) AS 'date',
     o.id AS ID,
     o.fulfillment,
-    tc.utm_medium AS 'utm_medium'
+    tc.utm_medium AS 'utm_medium',
     count(distinct oc.id) AS 'applications'
 FROM
     opportunity_candidates oc 
