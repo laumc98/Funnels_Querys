@@ -33,7 +33,8 @@ WHERE
             'rmr',
             'dgv',
             'MER',
-            'ACMP'
+            'ACMP',
+            'dgc'
     )
     )
 GROUP BY
