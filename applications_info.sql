@@ -3,7 +3,8 @@ SELECT
     opportunity_candidates.interested AS 'application date',
     opportunity_candidates.opportunity_id AS 'ID',
     opportunities.fulfillment AS 'fulfillment',
-    people.gg_id AS 'gg_id'
+    people.gg_id AS 'gg_id',
+    people.username AS 'username'
 FROM 
     opportunity_candidates
     LEFT JOIN people ON opportunity_candidates.person_id = people.id
