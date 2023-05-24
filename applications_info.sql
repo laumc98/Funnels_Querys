@@ -4,7 +4,7 @@ SELECT
     opportunity_candidates.opportunity_id AS 'ID',
     opportunities.fulfillment AS 'fulfillment',
     people.gg_id AS 'gg_id',
-    people.username AS 'username'
+    people.username AS 'Username'
 FROM 
     opportunity_candidates
     LEFT JOIN people ON opportunity_candidates.person_id = people.id
