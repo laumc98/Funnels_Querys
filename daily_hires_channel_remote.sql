@@ -1,18 +1,46 @@
 /* AA : Channel's performance : Daily hires remote : prod */ 
 SELECT
-    date(ooh.hiring_date) AS 'daily_date',
+    date(all_hires.hire_date) AS 'daily_date',
     o.fulfillment AS 'fulfillment',
     tc.utm_medium AS 'Tracking Codes__utm_medium',
-    count(distinct ooh.opportunity_candidate_id) AS 'daily_hires_channel_remote'
-FROM 
-    opportunity_operational_hires ooh
-    LEFT JOIN tracking_code_candidates tcc ON ooh.opportunity_candidate_id = tcc.candidate_id
+    count(distinct all_hires.candidate_id) AS 'daily_hires_channel_remote'
+FROM
+    (
+        SELECT
+            DATE(ooh.hiring_date) AS 'hire_date',
+            ooh.opportunity_candidate_id AS 'candidate_id'
+        FROM 
+            opportunity_operational_hires ooh
+        WHERE
+            ooh.hiring_date > '2021-7-18'
+            
+        UNION
+        
+        SELECT
+            MIN(occh.created) AS 'hire_date',
+            occh.candidate_id AS 'candidate_id'
+        FROM
+            opportunity_candidate_column_history occh
+            INNER JOIN opportunity_candidates ocan ON occh.candidate_id = ocan.id
+            INNER JOIN opportunities o ON ocan.opportunity_id = o.id
+        WHERE
+            occh.created >= '2022-01-01'
+            AND occh.to_funnel_tag = 'hired'
+            AND (
+                o.fulfillment LIKE 'self%'
+                OR o.fulfillment LIKE 'essentials%'
+                OR o.fulfillment LIKE 'pro%'
+                OR o.fulfillment LIKE 'ats%'
+            )
+        GROUP BY
+            occh.candidate_id
+    ) AS all_hires
+    INNER JOIN opportunity_candidates ocan ON all_hires.candidate_id = ocan.id
+    INNER JOIN opportunities o ON ocan.opportunity_id = o.id
+    LEFT JOIN tracking_code_candidates tcc ON ocan.id = tcc.candidate_id
     LEFT JOIN tracking_codes tc ON tcc.tracking_code_id = tc.id
-    LEFT JOIN opportunities o ON ooh.opportunity_id = o.id
-WHERE
-    ooh.hiring_date IS NOT NULL 
-    AND date(ooh.hiring_date) >= date(date_add(now(6), INTERVAL -3 month))
-    AND ooh.opportunity_id IN (
+WHERE 
+    o.id IN (
         SELECT
             DISTINCT o.id AS opportunity_id
         FROM
@@ -25,8 +53,8 @@ WHERE
             date(coalesce(null, o.first_reviewed, o.last_reviewed)) >= '2021/01/01'
             AND o.objective NOT LIKE '**%'
             AND o.review = 'approved'
-    )
-GROUP BY
-    date(ooh.hiring_date),
+        )
+GROUP BY 
+    date(all_hires.hire_date),
     tc.utm_medium,
     o.fulfillment
