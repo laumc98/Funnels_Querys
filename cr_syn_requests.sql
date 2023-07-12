@@ -34,7 +34,8 @@ WHERE
             'dgv',
             'MER',
             'ACMP',
-            'dgc'
+            'dgc',
+            'fcr'
     )
     )
 GROUP BY
