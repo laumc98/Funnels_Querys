@@ -38,7 +38,8 @@ WHERE
             'MER' ,
             'ACMP',
             'dgc',
-            'fcr'
+            'fcr',
+            'mes'
         )
     )
 GROUP BY
