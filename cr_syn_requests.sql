@@ -36,7 +36,8 @@ WHERE
             'ACMP',
             'dgc',
             'fcr',
-            'mes'
+            'mes',
+            'mcmn'
     )
     )
 GROUP BY
