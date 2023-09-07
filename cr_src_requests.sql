@@ -40,7 +40,8 @@ WHERE
             'dgc',
             'fcr',
             'mes',
-            'mcmn'
+            'mcmn',
+            'mfo'
         )
     )
 GROUP BY
