@@ -41,7 +41,10 @@ WHERE
             'fcr',
             'mes',
             'mcmn',
-            'mfo'
+            'mfo',
+            'smfp',
+            'gebj',
+            'aamf'
         )
     )
 GROUP BY

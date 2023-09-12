@@ -38,6 +38,9 @@ WHERE
         OR tc.utm_campaign = 'mes'
         OR tc.utm_campaign = 'mcmn'
         OR tc.utm_campaign = 'mfo'
+        OR tc.utm_campaign = 'smfp'
+        OR tc.utm_campaign = 'gebj'
+        OR tc.utm_campaign = 'aamf'
     )
     AND tc.utm_medium IN ('src','rc_src','rc_src_trrx_inv','syn','rc_syn','rc_syn_trrx_inv','syn_paid','rc_syn_paid','rc_syn_paid_trrx_inv')
 GROUP BY
