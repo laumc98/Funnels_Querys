@@ -44,7 +44,9 @@ WHERE
             'mfo',
             'smfp',
             'gebj',
-            'aamf'
+            'aamf',
+            'eb',
+            'kglm'
         )
     )
 GROUP BY
