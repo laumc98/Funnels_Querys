@@ -45,7 +45,9 @@ WHERE
             'eb',
             'kglm',
             'sm',
-            'brc'
+            'brc',
+            'vaio',
+            'exrm'
     )
     )
 GROUP BY

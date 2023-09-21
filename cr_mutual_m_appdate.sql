@@ -57,6 +57,8 @@ FROM
             OR tc.utm_campaign = 'kglm'
             OR tc.utm_campaign = 'sm'
             OR tc.utm_campaign = 'brc'
+            OR tc.utm_campaign = 'vaio'
+            OR tc.utm_campaign = 'exrm'
         )
         AND tc.utm_medium IN ('src','rc_src','rc_src_trrx_inv','syn','rc_syn','rc_syn_trrx_inv','syn_paid','rc_syn_paid','rc_syn_paid_trrx_inv')
     GROUP BY
