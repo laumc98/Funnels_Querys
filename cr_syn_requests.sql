@@ -43,7 +43,9 @@ WHERE
             'gebj',
             'aamf',
             'eb',
-            'kglm'
+            'kglm',
+            'sm',
+            'brc'
     )
     )
 GROUP BY
