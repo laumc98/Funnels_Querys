@@ -18,6 +18,7 @@ where
   opportunity_candidates.created >= "2021-06-01"
   and opportunity_candidates.created < date(date_add(now(6), INTERVAL 1 day))
   and o.objective not like '***%'
+  AND o.crawled = FALSE
   and tc.utm_medium in (
     'srh_jobs',
     'am_inv',

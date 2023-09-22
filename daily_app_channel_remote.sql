@@ -14,6 +14,7 @@ WHERE
     AND date(oc.interested) >= date(date_add(now(6), INTERVAL -3 month))
     AND o.objective NOT LIKE '**%'
     AND oc.application_step IS NOT NULL
+    AND o.crawled = FALSE
     AND o.id IN (
         SELECT
             DISTINCT o.id AS opportunity_id

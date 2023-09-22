@@ -54,6 +54,7 @@ WHERE
             AND o.objective NOT LIKE '**%'
             AND o.review = 'approved'
         )
+    AND o.crawled = FALSE
 GROUP BY 
     date(all_hires.hire_date),
     tc.utm_medium,

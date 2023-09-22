@@ -6,3 +6,4 @@ FROM
     opportunities o
 WHERE 
     o.created >= '2021-01-01'
+    AND o.crawled = FALSE
