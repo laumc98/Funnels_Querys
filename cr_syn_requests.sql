@@ -47,7 +47,8 @@ WHERE
             'sm',
             'brc',
             'vaio',
-            'exrm'
+            'exrm',
+            'jsmn'
     )
     )
 GROUP BY
