@@ -48,7 +48,11 @@ WHERE
             'brc',
             'vaio',
             'exrm',
-            'jsmn'
+            'jsmn',
+            'lfas',
+            'malm',
+            'lbmp',
+            'capi'
     )
     )
 GROUP BY
