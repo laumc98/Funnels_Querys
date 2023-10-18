@@ -52,7 +52,10 @@ WHERE
             'lfas',
             'malm',
             'lbmp',
-            'capi'
+            'capi',
+            'cals',
+            'bb',
+            'jcmv'
     )
     )
 GROUP BY
