@@ -4,6 +4,7 @@ SELECT
     o.id AS ID,
     o.fulfillment,
     tc.utm_medium AS 'utm_medium',
+    tc.utm_campaign AS 'cr_campaign',
     count(distinct oc.id) AS 'applications'
 FROM
     opportunity_candidates oc 
@@ -19,4 +20,5 @@ GROUP BY
     date(oc.interested),
     o.id,
     o.fulfillment,
-    tc.utm_medium
+    tc.utm_medium,
+    tc.utm_campaign
