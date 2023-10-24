@@ -55,7 +55,8 @@ WHERE
             'capi',
             'cals',
             'bb',
-            'jcmv'
+            'jcmv',
+            'egc'
     )
     )
 GROUP BY
