@@ -15,7 +15,7 @@ WHERE
     oc.interested IS NOT NULL 
     AND oc.interested >=  "2022-10-20"
     AND o.crawled = FALSE
-    AND tc.utm_medium IN ('rc_src','rc_src_trrx_inv','rc_syn','rc_syn_trrx_inv','rc_syn_paid','rc_syn_paid_trrx_inv','rc_trrx_inv','rc_cb_rcdt','rc_ccg','rc_sml_jobs','rc_am_sug')
+    AND tc.utm_medium IN ('rc_src','rc_src_trrx_inv','rc_syn','rc_syn_trrx_inv','rc_syn_paid','rc_syn_paid_trrx_inv','rc_trrx_inv','rc_cb_rcdt','rc_ccg','rc_sml_jobs','rc_am_sug','syn_rqt','rc_syn_rqt')
 GROUP BY 
     date(oc.interested),
     o.id,
