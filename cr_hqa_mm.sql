@@ -16,7 +16,6 @@ WHERE
     OR mutual_matches.timestamp IS NOT NULL)
     AND disqualifications.timestamp IS NULL
     AND hires.timestamp IS NULL
-    AND applications.opportunity_reference_id = 'OwbDjKpr'
     AND (applications.utm_campaign = 'amdm'
         OR applications.utm_campaign = 'mcog'
         OR applications.utm_campaign = 'dffa'
