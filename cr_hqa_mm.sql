@@ -9,13 +9,9 @@ FROM
     applications
     LEFT JOIN opportunity ON applications.opportunity_reference_id = opportunity.ref_id
     LEFT JOIN mutual_matches ON (mutual_matches.gg_id = applications.gg_id AND mutual_matches.opportunity_reference_id = applications.opportunity_reference_id)
-    LEFT JOIN disqualifications ON (disqualifications.gg_id = applications.gg_id AND disqualifications.opportunity_reference_id = applications.opportunity_reference_id)
-    LEFT JOIN hires ON (hires.gg_id = applications.gg_id AND hires.opportunity_reference_id = applications.opportunity_reference_id)
 WHERE
     (applications.filters_passed = true
     OR mutual_matches.timestamp IS NOT NULL)
-    AND disqualifications.timestamp IS NULL
-    AND hires.timestamp IS NULL
     AND (applications.utm_campaign = 'amdm'
         OR applications.utm_campaign = 'mcog'
         OR applications.utm_campaign = 'dffa'
