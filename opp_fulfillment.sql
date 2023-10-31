@@ -5,7 +5,7 @@ SELECT
     opportunity_organizations.organization_id AS 'Company_id'
 FROM
     opportunities o
-    LEFT JOIN opportunity_organizations ON opportunity_organizations.opportunity_id = o.id AND active = 1
+    LEFT JOIN opportunity_organizations ON opportunity_organizations.opportunity_id = o.id AND opportunity_organizations.active = 1
 WHERE 
     o.created >= '2021-01-01'
     AND o.crawled = FALSE
