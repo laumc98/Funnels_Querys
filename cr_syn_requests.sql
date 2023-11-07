@@ -56,7 +56,8 @@ WHERE
             'cals',
             'bb',
             'jcmv',
-            'egc'
+            'egc',
+            'mdr'
     )
     )
 GROUP BY
