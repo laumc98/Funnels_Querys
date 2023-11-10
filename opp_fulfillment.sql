@@ -2,6 +2,7 @@
 SELECT
     o.id,
     o.fulfillment,
+    date(coalesce(null, o.first_reviewed, o.last_reviewed)) as last_reviewed,
     opportunity_organizations.organization_id AS 'Company_id'
 FROM
     opportunities o
