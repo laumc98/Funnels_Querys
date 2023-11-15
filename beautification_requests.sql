@@ -1,5 +1,6 @@
 /* AA : Funnels performance : Beautification requests: prod */ 
 SELECT 
+    tasks.id,
     tasks.created,
     tasks.deadline, 
     tasks.completed,
