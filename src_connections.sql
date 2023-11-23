@@ -11,3 +11,4 @@ WHERE
         OR tasks.trigger = 'sourcing-connection-request-boost'
         OR tasks.trigger = 'sourcing-connection-request-pro'
         OR tasks.trigger = 'sourcing-connection-request-ss')
+    AND tasks.created >= '2023-11-20'
