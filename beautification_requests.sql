@@ -15,7 +15,7 @@ SELECT
 FROM 
     tasks
 WHERE 
-    tasks.trigger IN ('li-import-request','li-import-request-crawling-errors','li-import-request-picture-not-found')
+    tasks.trigger IN ('li-import-request','li-import-request-crawling-errors')
     AND tasks.id NOT IN (
         SELECT 
             tasks.parent_task_id
