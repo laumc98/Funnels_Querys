@@ -12,3 +12,11 @@ WHERE
         OR tasks.trigger = 'sourcing-connection-request-pro'
         OR tasks.trigger = 'sourcing-connection-request-ss')
     AND tasks.created >= '2023-11-20'
+    AND tasks.id NOT IN (
+        SELECT 
+            tasks.id
+        FROM 
+            tasks  
+        WHERE 
+            LOWER(tasks.completion_comment) LIKE '%completed with manual update.%'
+    )
