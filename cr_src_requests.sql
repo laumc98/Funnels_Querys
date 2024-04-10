@@ -60,7 +60,8 @@ WHERE
             'bb',
             'jcmv',
             'egc',
-            'mdr'
+            'mdr',
+            'grtt'
         )
     )
 GROUP BY

@@ -68,6 +68,7 @@ FROM
             OR tc.utm_campaign = 'jcmv'
             OR tc.utm_campaign = 'egc'
             OR tc.utm_campaign = 'mdr'
+            OR tc.utm_campaign = 'grtt'
         )
         AND tc.utm_medium IN ('src','rc_src','rc_src_trrx_inv','syn','rc_syn','rc_syn_trrx_inv','syn_paid','rc_syn_paid','rc_syn_paid_trrx_inv','syn_rqt','rc_syn_rqt')
     GROUP BY
