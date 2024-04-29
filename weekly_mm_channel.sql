@@ -1,4 +1,4 @@
-/* AA : channel performance : mutual matches by candidate recruiters: prod */ 
+/* AA : Channel's performance : weekly mm remote : prod */ 
 WITH 
 groupped_services AS (
     SELECT
@@ -54,26 +54,22 @@ opps_services AS (
         opportunities o
     LEFT JOIN groupped_services gs ON
         gs.opportunity_id = o.id
-),
-cr_mm AS (
+),weekly_mutual_matches AS (
     SELECT
-        date(mutual_matches.created) AS 'date',
-        mutual_matches.id AS 'ID',
-        mutual_matches.business_line,
+        str_to_date(concat(yearweek(mutual_matches.created), ' Monday'),'%X%V %W') AS 'Date',
+        mutual_matches.business_line AS 'business_line',
         mutual_matches.reach,
-        mutual_matches.utm_medium AS 'utm_medium',
-        mutual_matches.utm_campaign AS 'cr_campaign',
-        count(*) AS 'mutualm'
+        mutual_matches.utm_medium AS 'UTM',
+        count(*) AS 'MM'
     FROM
     (
-        SELECT
+        SELECT 
             occh.candidate_id,
-            min(occh.created) AS 'created',
-            o.id,
-            ifnull(os.business_line,'torre_free') AS business_line,
+            oca.opportunity_id,
+            IFNULL(os.business_line,'torre_free') AS business_line,
             ifnull(os.reach,0) AS reach,
             tc.utm_medium,
-            tc.utm_campaign
+            MIN(occh.created) AS created
         FROM
             opportunity_candidate_column_history occh
             INNER JOIN opportunity_columns oc ON occh.to = oc.id
@@ -84,53 +80,10 @@ cr_mm AS (
             LEFT JOIN tracking_codes tc ON tcc.tracking_code_id = tc.id
         WHERE
             oc.name = 'mutual matches'
-            AND occh.created >= "2022-10-20"
-            AND (tc.utm_campaign = 'amdm'
-                OR tc.utm_campaign = 'mcog'
-                OR tc.utm_campaign = 'dffa'
-                OR tc.utm_campaign = 'czp'
-                OR tc.utm_campaign = 'jdpb'
-                OR tc.utm_campaign = 'dmc'
-                OR tc.utm_campaign = 'nsr'
-                OR tc.utm_campaign = 'mmor'
-                OR tc.utm_campaign = 'JAMC'
-                OR tc.utm_campaign = 'mgdd'
-                OR tc.utm_campaign = 'mrh'
-                OR tc.utm_campaign = 'srl'
-                OR tc.utm_campaign = 'avs'
-                OR tc.utm_campaign = 'sbr'
-                OR tc.utm_campaign = 'tavp'
-                OR tc.utm_campaign = 'rmr' 
-                OR tc.utm_campaign = 'dgv'
-                OR tc.utm_campaign = 'MER' 
-                OR tc.utm_campaign = 'ACMP'
-                OR tc.utm_campaign = 'dgc'
-                OR tc.utm_campaign = 'fcr'
-                OR tc.utm_campaign = 'mes'
-                OR tc.utm_campaign = 'mcmn'
-                OR tc.utm_campaign = 'mfo'
-                OR tc.utm_campaign = 'smfp'
-                OR tc.utm_campaign = 'gebj'
-                OR tc.utm_campaign = 'aamf'
-                OR tc.utm_campaign = 'eb'
-                OR tc.utm_campaign = 'kglm'
-                OR tc.utm_campaign = 'sm'
-                OR tc.utm_campaign = 'brc'
-                OR tc.utm_campaign = 'vaio'
-                OR tc.utm_campaign = 'exrm'
-                OR tc.utm_campaign = 'jsmn'
-                OR tc.utm_campaign = 'lfas'
-                OR tc.utm_campaign = 'malm'
-                OR tc.utm_campaign = 'lbmp'
-                OR tc.utm_campaign = 'capi'
-                OR tc.utm_campaign = 'cals'
-                OR tc.utm_campaign = 'bb'
-                OR tc.utm_campaign = 'jcmv'
-                OR tc.utm_campaign = 'egc'
-                OR tc.utm_campaign = 'mdr'
-                OR tc.utm_campaign = 'grtt'
-            )
-            AND tc.utm_medium IN ('src','rc_src','rc_src_trrx_inv','syn','rc_syn','rc_syn_trrx_inv','syn_paid','rc_syn_paid','rc_syn_paid_trrx_inv','syn_rqt','rc_syn_rqt')
+            AND occh.created >= '2022-06-01'
+            AND oca.interested IS NOT NULL 
+            AND o.objective NOT LIKE '**%'
+            AND o.crawled = FALSE
             AND o.id NOT IN (
                 SELECT DISTINCT opportunity_id
                 FROM opportunity_organizations
@@ -138,15 +91,15 @@ cr_mm AS (
                     AND active
             )
         GROUP BY
-            occh.candidate_id
+            occh.candidate_id,
+            oca.opportunity_id,
+            os.business_line,
+            os.reach,
+            tc.utm_medium
     ) AS mutual_matches
     GROUP BY 
-        date(mutual_matches.created),
-        mutual_matches.id,
+        str_to_date(concat(yearweek(mutual_matches.created), ' Monday'),'%X%V %W'),
         mutual_matches.business_line,
         mutual_matches.reach,
-        mutual_matches.utm_medium,
-        mutual_matches.utm_campaign
-    ORDER BY 
-        date(mutual_matches.created) ASC 
-) SELECT * FROM cr_mm;
+        mutual_matches.utm_medium
+) SELECT * FROM weekly_mutual_matches;

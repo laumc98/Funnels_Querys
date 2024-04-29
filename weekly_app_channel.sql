@@ -1,4 +1,4 @@
-/* AA : Channel's performance : mm info : prod */ 
+/* AA : Channel's performance : weekly app remote : prod */ 
 WITH 
 groupped_services AS (
     SELECT
@@ -54,24 +54,34 @@ opps_services AS (
         opportunities o
     LEFT JOIN groupped_services gs ON
         gs.opportunity_id = o.id
-),
-mm_info AS (
+),weekly_applications AS (
     SELECT
-        p.username AS Username,
-        o.id AS Id,
-        min(date(occh.created)) AS mm_date,
-        ifnull(os.business_line,'torre_free') AS business_line
+        str_to_date(concat(yearweek(oc.interested), ' Monday'),'%X%V %W') AS 'Date',
+        IFNULL(os.business_line,'torre_free') AS 'business_line',
+        ifnull(os.reach,0) AS reach,
+        tc.utm_medium AS 'UTM',
+        count(distinct oc.id) AS 'App'
     FROM
-        opportunity_candidate_column_history occh
-        INNER JOIN opportunity_columns oc ON occh.to = oc.id
-        INNER JOIN opportunities o ON oc.opportunity_id = o.id
+        opportunity_candidates oc 
+        INNER JOIN opportunities o ON oc.opportunity_id = o.id 
         LEFT JOIN opps_services os ON oc.opportunity_id = os.opportunity_id
-        LEFT JOIN opportunity_candidates oca ON occh.candidate_id = oca.id
-        LEFT JOIN people p ON oca.person_id = p.id
+        LEFT JOIN tracking_code_candidates tcc ON oc.id = tcc.candidate_id
+        LEFT JOIN tracking_codes tc ON tcc.tracking_code_id = tc.id 
     WHERE
-        oc.name = 'mutual matches'
-        AND date(occh.created) >= '2022-10-21'
-    GROUP BY
-        p.username,
-        o.id
-) SELECT * FROM mm_info;
+        oc.interested IS NOT NULL 
+        AND oc.interested > '2022-7-18'
+        AND o.objective NOT LIKE '**%'
+        AND oc.application_step IS NOT NULL
+        AND o.crawled = FALSE
+        AND o.id NOT IN (
+            SELECT DISTINCT opportunity_id
+            FROM opportunity_organizations
+            WHERE organization_id IN (748404,1510092)
+                AND active
+        )
+    GROUP BY 
+        str_to_date(concat(yearweek(oc.interested), ' Monday'),'%X%V %W'),
+        os.business_line,
+        os.reach,
+        tc.utm_medium
+) SELECT * FROM weekly_applications;

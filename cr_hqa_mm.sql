@@ -7,11 +7,13 @@ SELECT
     count(*) AS 'unique_hqa_mm'
 FROM
     applications
-    LEFT JOIN opportunity ON applications.opportunity_reference_id = opportunity.ref_id
+    INNER JOIN opportunity ON applications.opportunity_reference_id = opportunity.ref_id
     LEFT JOIN mutual_matches ON (mutual_matches.gg_id = applications.gg_id AND mutual_matches.opportunity_reference_id = applications.opportunity_reference_id)
 WHERE
     (applications.filters_passed = true
     OR mutual_matches.timestamp IS NOT NULL)
+    AND CONVERT(JSON_EXTRACT(opportunity.opportunity_snapshot, '$."organizations"'), CHAR) NOT LIKE '%748404$'
+    AND CONVERT(JSON_EXTRACT(opportunity.opportunity_snapshot, '$."organizations"'), CHAR) NOT LIKE '%1510092'
     AND (applications.utm_campaign = 'amdm'
         OR applications.utm_campaign = 'mcog'
         OR applications.utm_campaign = 'dffa'
