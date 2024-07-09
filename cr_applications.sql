@@ -117,6 +117,7 @@ WHERE
         OR tc.utm_campaign = 'egc'
         OR tc.utm_campaign = 'mdr'
         OR tc.utm_campaign = 'grtt'
+        OR tc.utm_campaign = 'avpc'
     )
     AND tc.utm_medium IN ('src','rc_src','rc_src_trrx_inv','syn','rc_syn','rc_syn_trrx_inv','syn_paid','rc_syn_paid','rc_syn_paid_trrx_inv','syn_rqt','rc_syn_rqt')
     AND o.id NOT IN (

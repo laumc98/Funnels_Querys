@@ -75,7 +75,7 @@ cr_started_app AS (
       opportunity_candidates.created >= "2022-10-20"
       AND o.objective not like '***%'
       AND tc.utm_medium IN ('src','rc_src','rc_src_trrx_inv','syn','rc_syn','syn_paid','rc_syn_paid','rc_syn_trrx_inv','rc_syn_paid_trrx_inv','syn_rqt','rc_syn_rqt')
-      AND tc.utm_campaign IN ('amdm','mcog','dffa','czp','jdpb','dmc','nsr','mmor','JAMC','mgdd','mrh','srl','avs','sbr','tavp','rmr' ,'dgv','MER','ACMP','dgc','fcr','mes','mcmn','mfo','smfp','gebj','aamf','eb','kglm','sm','brc','vaio','exrm','jsmn','lfas','malm','lbmp','capi','cals','bb','jcmv','egc','mdr','grtt')
+      AND tc.utm_campaign IN ('amdm','mcog','dffa','czp','jdpb','dmc','nsr','mmor','JAMC','mgdd','mrh','srl','avs','sbr','tavp','rmr' ,'dgv','MER','ACMP','dgc','fcr','mes','mcmn','mfo','smfp','gebj','aamf','eb','kglm','sm','brc','vaio','exrm','jsmn','lfas','malm','lbmp','capi','cals','bb','jcmv','egc','mdr','grtt','avpc')
       AND o.id NOT IN (
             SELECT DISTINCT opportunity_id
             FROM opportunity_organizations

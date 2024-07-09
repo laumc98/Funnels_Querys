@@ -61,7 +61,8 @@ WHERE
             'jcmv',
             'egc',
             'mdr',
-            'grtt'
+            'grtt',
+            'avpc'
         )
     )
 GROUP BY
